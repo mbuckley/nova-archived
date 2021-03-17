@@ -1,0 +1,88 @@
+.nav {
+  --item-spacing: var(--spacing-s);
+  --accent-color: var(--teal-500);
+  color: var(--text-color--dark);
+  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+  line-height: 1.25;
+  padding: 1rem 0 2rem;
+}
+
+.nav__subnav {
+  --item-spacing: 6px;
+  color: var(--font-color-subdued);
+  font-size: 13px;
+}
+
+.nav__header {
+  font-size: 11px;
+  font-weight: var(--font-weight-bold);
+  color: var(--font-color-default);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav__link,
+.nav__header {
+  background-color: rgba(0,0,0, var(--bg-alpha, 0));
+  display: block;
+  padding-top: var(--item-spacing);
+  padding-right: 20px;
+  padding-bottom: var(--item-spacing);
+  padding-left: calc(14px + var(--level, 1) * 10px);
+}
+
+.nav > li {
+  padding-bottom: 16px;
+}
+
+@media (hover: hover) {
+  .nav__link:not(.nav__link--active):hover {
+    color: var(--accent-color);
+  }
+}
+
+.nav__link--active {
+  background: var(--grey-200);
+  box-shadow: inset 4px 0 0 0 var(--accent-color);
+  color: var(--accent-color);
+}
+
+.nav__subnav .nav__header {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.nav__link.outbound {
+  align-items: center;
+  display: flex;
+}
+
+.nav__link.outbound svg {
+  flex: none;
+  margin-left: 0.25em;
+}
+
+.nav span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px), (pointer: coarse) {
+  .nav {
+    --item-spacing: 12px;
+    font-size: 15px;
+  }
+
+  .nav__subnav {
+    --item-spacing: 6px;
+    font-size: 14px;
+  }
+}

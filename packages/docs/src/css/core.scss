@@ -1,0 +1,54 @@
+// @import "reset.scss";
+@import "core.scss";
+@import "base.scss";
+
+:root {
+  // Font overrides
+  --font-size-h1: 50px;
+  --font-size-h2: 30px;
+  --font-size-h3: 20px;
+  --font-size-body: 14px;
+
+  // Menu variables
+  --menu-width: 200px;
+
+
+  --accent-color: #3880ff;
+  --accent-color-rgb: 56, 128, 255;
+
+  --accent-color-100: #4d8dff;
+  --accent-color-200: #639cff;
+  --accent-color-300: #4d8dff;
+  --accent-color-400: #7cabff;
+  --accent-color-500: #97bdff;
+  --accent-color-600: #b2ceff;
+  --accent-color-700: #cddfff;
+  --accent-color-800: #e3edff;
+  --accent-color-900: #f0f6ff;
+
+  --background: #001D36;
+
+  // Code variables
+  --code-color: var(--text-color--dark);
+  --code-background: #f5f7fa;
+  --code-block-background: var(--grey-100);
+  --code-snippet-background: var(--teal-200);
+  --code-snippet-text-color: var(--teal-700);
+  --code-font-size: var(--font-size-body);
+  --code-font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  // --font-family: system-ui, sans-serif;
+  --header-height: 56px;
+  --heading-font-family: "Eina", var(--font-family);
+  --line-rule-color: #edf2f6;
+  --offset-background: #fdfdff;
+  --offset-background--dark: #f7f7ff;
+  --page-margin-left: var(--menu-width);
+
+  --text-color: #4e5b6a;
+  --text-color--darker: #24282e;
+  --text-color--dark: #020814;
+  --text-color--lighter: #abb2bf;
+  --text-color--light: #73849a;
+  --text-color--white: #fff;
+}

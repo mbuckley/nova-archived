@@ -1,0 +1,9 @@
+tier:                  2
+owner:                 mbuckley
+team:                  mbuckley
+backlog_url:           # Full url where feature development is planned
+exceptions_url:        # Where exceptions can be viewed
+deploy_url:            # Url for deploying changes
+monitoring_url:        # Where to monitor the health of the running project
+playbooks_url:         # Documentation on how to fix service errors
+oncall_url:            # Oncall schedule

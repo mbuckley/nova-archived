@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Nova Core - Menu Examples</title>
+
+    <link rel="shortcut icon" type="image/png" href="../../../favicon.png" />
+    <script type="module" src="../../../../../dist/core/core.esm.js"></script>
+    <script nomodule src="../../../../../dist/core.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../../dist/core/core.css" />
+  </head>
+
+  <body>
+    <nova-example label="clio menu">
+      <clio-menu>
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+      </clio-menu>
+    </nova-example>
+
+    <nova-example label="popover with menu">
+      <!-- popover with menu and autofocus false -->
+      <clio-button id="autofocus-false-popover-activator">
+        Autofocus false
+      </clio-button>
+      <clio-popover id="autofocus-false-popover" align-x="left" align-y="bottom" padding="xs" autofocus="false">
+        <div slot="content">
+          <clio-menu>
+            <clio-menu-item onclick="alert('Triggered')">Apple</clio-menu-item>
+            <clio-menu-item onclick="alert('Triggered')">Ball</clio-menu-item>
+            <clio-menu-item onclick="alert('Triggered')">Cat</clio-menu-item>
+          </clio-menu>
+        </div>
+      </clio-popover>
+    </nova-example>
+
+    <nova-example label="popover with menu">
+      <!-- popover with menu and autofocus true (by default) -->
+      <clio-button id="autofocus-true-popover-activator">
+        Autofocus true
+      </clio-button>
+      <clio-popover id="autofocus-true-popover" align-x="left" align-y="bottom" padding="xs">
+        <div slot="content">
+          <clio-menu>
+            <clio-menu-item onclick="alert('Triggered')">Apple</clio-menu-item>
+            <clio-menu-item onclick="alert('Triggered')">Ball</clio-menu-item>
+            <clio-menu-item onclick="alert('Triggered')">Cat</clio-menu-item>
+            <clio-menu-item onclick="alert('Triggered')">Pineapple</clio-menu-item>
+            <clio-menu-item onclick="alert('Triggered')" disabled="true">Truck</clio-menu-item>
+            <clio-menu-item onclick="alert('Triggered')">Taco</clio-menu-item>
+          </clio-menu>
+        </div>
+      </clio-popover>
+    </nova-example>
+
+
+    <!-- Popover js for initializing components -->
+    <script type="text/javascript">
+      function handlePopoverActivatorClick(popoverId) {
+        const popover = document.getElementById(popoverId);
+        popover.active = !popover.active;
+      };
+      function initializePopovers() {
+        let popovers = [];
+        let activators = [];
+        const popoverTypes = [
+          "autofocus-false",
+          "autofocus-true",
+        ];
+
+        popoverTypes.forEach(function(popoverType) {
+          popovers.push(document.getElementById(popoverType + "-popover"));
+          activators.push(document.getElementById(popoverType + "-popover-activator"));
+        });
+
+        window.onload = function() {
+          popovers.forEach(function(popover, i) {
+            popover.activator = activators[i];
+          });
+          activators.forEach(function(activator, i) {
+            activator.addEventListener("click", function() {
+              handlePopoverActivatorClick(popovers[i].id);
+            })
+          })
+        };
+      };
+      initializePopovers();
+    </script>
+  </body>
+</html>

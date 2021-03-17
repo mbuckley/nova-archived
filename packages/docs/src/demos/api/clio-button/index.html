@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Component</title>
+
+    <script type="module" src="/assets/@clio/nova-core/dist/core/core.esm.js"></script>
+    <script nomodule src="/assets/@clio/nova-core/dist/core.js"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/@clio/nova-core/dist/core/core.css" />
+
+  <style>
+    :root {
+      --ion-safe-area-top: 20px;
+      --ion-safe-area-bottom: 22px;
+    }
+  </style>
+</head>
+<body>
+  <ion-app>
+    <clio-button button-style="primary" onclick="console.log('from template')">Primary</clio-button>
+    <clio-button button-style="secondary" onclick="console.log('from template')">Secondary</clio-button>
+    <clio-button button-style="danger" onclick="console.log('from template')">Danger</clio-button>
+    <clio-button button-style="primary" onclick="console.log('from template')" href="http://google.com" target="_blank" rel="noopener">LinkToGoogleInNewTab</clio-button>
+    <hr />
+
+    <clio-button button-style="primary" size="small">Primary</clio-button>
+    <clio-button button-style="secondary" size="small">Secondary</clio-button>
+    <clio-button button-style="danger" size="small">Danger</clio-button>
+
+    <hr />
+
+    <clio-button button-style="primary" onclick="console.log('from template')" disabled="true"
+      >Primary Disabled</clio-button
+    >
+    <clio-button button-style="secondary" disabled="true">Secondary Disabled</clio-button>
+    <clio-button button-style="danger" disabled="true">Danger Disabled</clio-button>
+
+    <hr />
+
+    <clio-button button-style="primary" onclick="console.log('from template')" loading="true"
+      >Primary Loading</clio-button
+    >
+    <clio-button button-style="secondary" loading="true">Secondary Loading</clio-button>
+    <clio-button button-style="danger" loading="true">Danger Loading</clio-button>
+
+    <hr />
+
+    <clio-button type="submit">Submit</clio-button>
+    <clio-button type="reset">Reset</clio-button>
+  </ion-app>
+</body>
+</html>

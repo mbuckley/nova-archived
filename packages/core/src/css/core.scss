@@ -1,0 +1,6 @@
+// Use this file to define what will be available inside of every component. 
+@import "variables/index";
+
+html:not(.hydrated) body {
+  display: none;
+}

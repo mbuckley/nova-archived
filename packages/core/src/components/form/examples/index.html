@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Nova Core - Form Examples</title>
+
+    <link rel="shortcut icon" type="image/png" href="../../../favicon.png" />
+    <script type="module" src="../../../../../dist/core/core.esm.js"></script>
+    <script nomodule src="../../../../../dist/core.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../../dist/core/core.css" />
+  </head>
+
+  <body>
+    <nova-example label="Default Clio Form with novalidate set to true">
+      <clio-form id="default-form" novalidate="true">
+        <clio-input label="Default clio-input"></clio-input>
+        <br />
+        <clio-input name="required-input" required="true" label="Default Validation"></clio-input>
+        <br />
+        <clio-input
+          name="min-max-input"
+          required="true"
+          label="Clio-input with validation: Min &gt;= 5 & max =&lt; 15 length"
+        ></clio-input>
+        <br />
+        <clio-checkbox id="requiredCheckbox" required="true" label="Required checkbox"></clio-checkbox>
+        <br />
+
+        <clio-button type="submit">Submit</clio-button>
+      </clio-form>
+    </nova-example>
+
+    <nova-example label="Clio Form with allowRedirect">
+      <clio-form allow-redirect="true" action="http://google.com" novalidate="true">
+        <clio-input label="Default clio-input with no validation"></clio-input>
+        <br />
+        <clio-input name="required-input" required="true" label="Default Validation"></clio-input>
+        <br />
+
+        <clio-button type="submit">Submit</clio-button>
+      </clio-form>
+    </nova-example>
+  </body>
+
+  <script>
+    var form = document.querySelector("#default-form");
+    form.addEventListener("clioSubmit", function(event) {
+      alert("Form submitted");
+    });
+
+    var requiredInputs = document.querySelectorAll("clio-input[name='required-input']");
+    for (var i = 0; i < requiredInputs.length; i += 1) {
+      requiredInputs[i].validationRules = [{ name: "required" }];
+    }
+
+    var minMaxInputs = document.querySelectorAll("clio-input[name='min-max-input']");
+    for (var i = 0; i < minMaxInputs.length; i += 1) {
+      minMaxInputs[i].validationRules = [{ name: "length", options: { min: 5, max: 15 } }];
+    }
+
+    var requiredCheckbox = document.getElementById('requiredCheckbox');
+  </script>
+</html>

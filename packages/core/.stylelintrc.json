@@ -1,0 +1,27 @@
+{
+  "extends": "stylelint-config-recommended",
+  "plugins": ["stylelint-scss", "stylelint-selector-bem-pattern", "./script/stylelint/documentation-for-css-prop.js"],
+  "rules": {
+    "plugin/no-documentation-for-css-prop": true,
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["function", "if", "each", "include", "mixin"]
+      }
+    ],
+    "selector-type-no-unknown": [
+      true,
+      {
+        "ignore": ["custom-elements"]
+      }
+    ],
+    "plugin/selector-bem-pattern": {
+      "componentName": "[A-Z]+",
+      "componentSelectors": {
+        "initial": "^\\.{componentName}(?:-[a-z]+)?$",
+        "combined": "^\\.combined-{componentName}-[a-z]+$"
+      },
+      "utilitySelectors": "^\\.util-[a-z]+$"
+    }
+  }
+}

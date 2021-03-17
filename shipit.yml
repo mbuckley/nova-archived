@@ -1,0 +1,13 @@
+dependencies:
+  override:
+    - echo "ignore default dependency process"
+deploy:
+  interval: 15m
+  override:
+    - script/shipit-hooks/deploy/override.d/kubectl_deploy
+rollback:
+  override:
+    - script/shipit-hooks/deploy/override.d/kubectl_deploy
+machine:
+  environment:
+    PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin

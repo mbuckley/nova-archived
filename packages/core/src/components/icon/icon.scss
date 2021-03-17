@@ -1,0 +1,24 @@
+:host {
+  /**
+    * @prop --icon-container-height: Icon container height. Default 20px.
+    * @prop --icon-container-width: Icon container width. Default 20px.
+  */
+
+  --icon-container-height: 20px;
+  --icon-container-width: 20px;
+
+  display: inline-block;
+}
+
+:host(.icon--container__auto) {
+  --icon-container-height: auto;
+  --icon-container-width: auto;
+}
+
+.icon {
+  align-items: center;
+  display: flex;
+  height: var(--icon-container-height);
+  justify-content: center;
+  width: var(--icon-container-width);
+}

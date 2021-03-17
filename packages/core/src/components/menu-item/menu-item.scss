@@ -1,0 +1,37 @@
+:host {
+  /**
+    * @prop --menu-item-default-background-color: The menu item's background color in the default state. Defaults to global --white.
+    * @prop --menu-item-default-color: The menu item's text color in the default state. Defaults to global --grey-700.
+    * @prop --menu-item-padding-x: The menu item's horizontal padding. Defaults to global --spacing-m.
+    * @prop --menu-item-padding-y: The menu item's vertical padding. Defaults to global --spacing-s.
+    */
+  --menu-item-default-background-color: var(--white);
+  --menu-item-default-color: var(--grey-700);
+  --menu-item-padding-x: var(--spacing-m);
+  --menu-item-padding-y: var(--spacing-s);
+}
+
+.menu-item, 
+.menu-item__anchor {
+  align-items: center;
+  background-color: var(--menu-item-default-background-color);
+  color: var(--menu-item-default-color);
+  cursor: pointer;
+  display: flex;
+  flex: 1 1 auto;
+  padding: var(--menu-item-padding-y) var(--menu-item-padding-x);
+  text-decoration: none;
+  &:focus {
+    background-color: var(--grey-100);
+    outline: 0;
+  }
+}
+
+.menu-item--has-href {
+  padding: 0;
+}
+
+.menu-item--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

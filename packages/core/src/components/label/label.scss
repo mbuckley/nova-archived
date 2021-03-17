@@ -1,0 +1,61 @@
+:host {
+  /**
+    * @prop --label-color: Text colour for the label. Defaults to Defaults to global --black.
+    * @prop --label-required-color: Text colour for the required label. Defaults to global --green-500.
+    * @prop --label-font-size: Font size for the sub-label. Defaults to global --font-size-body.
+    * @prop --label-line-height: Line height for the sub-label. Defaults to global --line-height.
+    * @prop --label-font-weight: Font weight for the label. Defaults to global --font-weight-bold.
+    * @prop --label-margin: Margin for the label. Defaults to 0.
+    */
+  --label-color: var(--black);
+  --label-required-color: var(--green-500);
+  --label-font-size: var(--font-size-body);
+  --label-line-height: var(--line-height);
+  --label-font-weight: var(--font-weight-bold);
+  --label-margin: 0;
+
+  // TODO: add an `optional` supplementary indicator when needed
+  display: inline;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.label {
+  display: flex;
+  color: var(--label-color);
+  font-size: var(--label-font-size);
+  line-height: var(--label-line-height);
+  margin: var(--label-margin);
+}
+
+.label.label-default,
+.label.label-required {
+  font-weight: var(--label-font-weight);
+  justify-content: space-between;
+}
+
+.label.label-sub-label {
+  --label-color: var(--grey-500);
+  --label-font-size: var(--font-size-small);
+}
+
+.required-indicator {
+  color: var(--label-required-color);
+  display: flex;
+  font-weight: var(--font-weight-regular);
+  justify-content: flex-end;
+  margin-left: var(--spacing-m);
+}
+
+/* stylelint-disable selector-type-no-unknown */
+clio-radio :host,
+clio-checkbox :host {
+  --label-font-weight: normal;
+  --label-margin: 0 0 0 var(--spacing-s);
+}
+
+clio-checkbox[disabled] :host {
+  --label-color: var(--grey-400);
+}

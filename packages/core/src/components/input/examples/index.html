@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Nova Core - Input Examples</title>
+
+    <link rel="shortcut icon" type="image/png" href="../../../favicon.png" />
+    <script type="module" src="../../../../../dist/core/core.esm.js"></script>
+    <script nomodule src="../../../../../dist/core.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../../dist/core/core.css" />
+  </head>
+
+  <body>
+    <nova-example label="Nova Core - Text Input Default">
+      <clio-input name="test"></clio-input>
+    </nova-example>
+
+    <nova-example label="Nova Core - Text Input Default Value">
+      <clio-input name="test" value="Default Value"></clio-input>
+    </nova-example>
+
+    <nova-example label="Nova Core - Text Input with placeholder">
+      <clio-input name="test" placeholder="Placeholder"></clio-input>
+    </nova-example>
+
+    <nova-example label="Nova Core - Text Input with suffix">
+      <clio-input name="test" suffix="$"></clio-input>
+    </nova-example>
+
+    <nova-example label="Nova Core - Text Input with icon">
+      <clio-input name="icon" icon="caret-down"></clio-input>
+    </nova-example>
+
+    <nova-example label="Nova Core - Text Input with loading indicator">
+      <clio-input name="test" loading="true"></clio-input>
+    </nova-example>
+
+    <nova-example label="Nova Core - Text Input with loading indicator, icon, and suffix">
+      <clio-input name="icon" suffix="€" loading="true" icon="caret-down"></clio-input>
+    </nova-example>
+
+    <nova-example label="Nova Core - Text Input with label">
+      <clio-input name="test" label="Label for Input"></clio-input>
+    </nova-example>
+
+    <nova-example label="Nova Core - Text Input with label and required indicator">
+      <clio-input name="test" label="Label for Input" required="true"></clio-input>
+    </nova-example>
+
+    <nova-example label="Nova Core - Text Input with sub-label">
+      <clio-input name="test" sub-label="This is a description of the input."></clio-input>
+    </nova-example>
+
+    <nova-example label="Disabled Text Input">
+      <clio-input disabled="true"></clio-input>
+    </nova-example>
+
+    <nova-example label="Disabled Text Input with placeholder">
+      <clio-input disabled="true" placeholder="Placeholder"></clio-input>
+    </nova-example>
+
+    <nova-example label="Disabled Text Input with suffix">
+      <clio-input disabled="true" suffix="$/hr"></clio-input>
+    </nova-example>
+
+    <nova-example label="Disabled Text Input with icon">
+      <clio-input disabled="true" name="icon" icon="caret-down"></clio-input>
+    </nova-example>
+
+    <nova-example label="Disabled Text Input with with loading indicator">
+      <clio-input disabled="true" loading="true"></clio-input>
+    </nova-example>
+
+    <nova-example label="Disabled Text Input with loading indicator, icon, and suffix">
+      <clio-input disabled="true" name="icon" suffix="€/hr" icon="caret-down" loading="true"></clio-input>
+    </nova-example>
+
+    <nova-example label="Nova Core - @Method setFocus">
+      <clio-input id="myInput" name="myInput" value="Some Value"></clio-input>
+      <br />
+      <clio-button onclick="document.getElementById('myInput').setFocus()">Click to set focus</clio-button>
+    </nova-example>
+
+    <nova-example label="Nova Core - Input validation">
+      <clio-form>
+        <clio-input name="inputValidation1"></clio-input>
+        <br>
+        <clio-button type="submit">Validate</clio-button>
+      </clio-form>
+      <script>
+        var exampleInputValidationElement1 = document.querySelector("clio-input[name='inputValidation1']");
+        var exampleValidationRules1_InputValidation = [{
+          name: "length",
+          options: {
+            min: 5,
+            max: 15
+          }
+        }];
+        exampleInputValidationElement1.validationRules = exampleValidationRules1_InputValidation;
+      </script>
+    </nova-example>
+
+    <nova-example label="Nova Core - Input validation changes">
+      <clio-form>
+        <clio-input name="inputValidation2"></clio-input>
+        <br>
+        <clio-button id="inputValidation2Switch">Switch validations</clio-button>
+        <clio-button type="submit">Validate</clio-button>
+      </clio-form>
+      <script>
+        var exampleInputValidationElement2 = document.querySelector("clio-input[name='inputValidation2']");
+        var exampleValidationRules2_CurrentIndex = 0;
+        var exampleValidationRules2_InputValidations = [
+          [{
+            name: "length",
+            options: {
+              min: 5,
+              max: 15
+            }
+          }],
+          [{
+            name: "length",
+            options: {
+              min: 20,
+              max: 30
+            }
+          }]
+        ];
+        exampleInputValidationElement2.validationRules = exampleValidationRules2_InputValidations[exampleValidationRules2_CurrentIndex];
+        document.getElementById("inputValidation2Switch").onclick = function changeValidationRules2() {
+          exampleValidationRules2_CurrentIndex++;
+          if (exampleValidationRules2_CurrentIndex >= exampleValidationRules2_InputValidations.length) {
+            exampleValidationRules2_CurrentIndex = 0;
+          }
+          exampleInputValidationElement2.validationRules = exampleValidationRules2_InputValidations[exampleValidationRules2_CurrentIndex];
+        }
+      </script>
+    </nova-example>
+  </body>
+</html>

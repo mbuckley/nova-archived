@@ -1,0 +1,43 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nova
+  namespace: nova-sandbox-us
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: nova
+  template:
+    metadata:
+      labels:
+        name: nova
+      namespace: nova-sandbox-us
+    spec:
+      initContainers:
+        - name: static-assets-copy
+          image: clio-product-docker-dev-local.jfrog.io/nova:latest
+          command: ["cp", "--recursive",  "/nova/packages/docs/www/*", "/assets"]
+          volumeMounts:
+            - mountPath: /assets
+              name: assets-volume
+      containers:
+        - name: app
+          envFrom:
+            - configMapRef:
+                name: nova
+          image: clio-product-docker-dev-local.jfrog.io/service-apache:latest
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 80
+          volumeMounts:
+            - mountPath: /var/www/html
+              name: assets-volume
+      imagePullSecrets:
+        - name: artifactory
+      serviceAccountName: nova
+      volumes:
+        - name: assets-volume
+          emptyDir: {}

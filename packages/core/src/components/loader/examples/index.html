@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Nova Core - Loader Examples</title>
+
+    <link rel="shortcut icon" type="image/png" href="../../../favicon.png" />
+    <script type="module" src="../../../../../dist/core/core.esm.js"></script>
+    <script nomodule src="../../../../../dist/core.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../../dist/core/core.css" />
+    <style>
+      .div--blue {
+        background: #0070E0;
+        margin-bottom: 10px;
+        width: 150px;
+      }
+
+      .custom-theme clio-loader {
+        --loader--large: 64px;
+        --loader--small: 32px;
+        --loader-color: var(--mint-500);
+        --loader-color--reversed: var(--teal-500);
+        --loader-stroke-width--large: 10;
+        --loader-stroke-width--small: 7;
+        --loader-svg-path--dash-gap: 500px;
+        --loader-svg-path--dash-length-middle: 70px;
+        --loader-svg-path--dash-length-start: 2;
+        --loader-svg-path--offset-end: -50px;
+        --loader-svg-path--offset-middle: -60px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nova-example label="Default state, without any props">
+      <clio-loader></clio-loader>
+    </nova-example>
+
+    <nova-example label="Custom aria label">
+      <clio-loader aria-label="This is a loader"></clio-loader>
+    </nova-example>
+
+    <nova-example label="Small">
+      <clio-loader size="small"></clio-loader>
+    </nova-example>
+
+    <nova-example label="Large">
+      <clio-loader size="large"></clio-loader>
+    </nova-example>
+
+    <nova-example label="Small Reversed" class="div--blue">
+      <clio-loader loader-style="reversed" size="small"></clio-loader>
+    </nova-example>
+
+    <nova-example label="Large Reversed" class="div--blue">
+      <clio-loader loader-style="reversed" size="large"></clio-loader>
+    </nova-example>
+
+    <nova-example label="Custom Theme" class="custom-theme">
+      <clio-loader size="small"></clio-loader>
+      <clio-loader size="large"></clio-loader>
+      <clio-loader loader-style="reversed" size="small"></clio-loader>
+      <clio-loader loader-style="reversed" size="large"></clio-loader>
+    </nova-example>
+  </body>
+</html>

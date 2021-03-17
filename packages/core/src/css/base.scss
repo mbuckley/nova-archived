@@ -1,0 +1,11 @@
+// Styles in this file will be injected into each component's scss
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height);
+} 

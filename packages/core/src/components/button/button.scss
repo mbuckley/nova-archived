@@ -1,0 +1,223 @@
+:host {
+  /**
+    * @prop --clio-button-border-radius: Button border radius. Default 3px.
+    * @prop --clio-button-border-width: Button border width. Default 1px.
+    * @prop --clio-button-font-family: Button font family. Default global --font-family.
+    * @prop --clio-button-font-size: Button font size. Default global --font-size-body.
+    * @prop --clio-button-host-display: Display property for the host element. Defaults to inline-block.
+    * @prop --clio-button-padding-x: Button's horizontal padding. Default global --spacing-m.
+    * @prop --clio-button-padding-y: Button's vertical padding. Default global --spacing-s.
+    * @prop --clio-button-padding-y--small: Small button's vertical padding. Default global --spacing-xs.
+    * @prop --clio-button-padding-x--small: Small button's horizontal padding. Default global --spacing-s.
+    * @prop --clio-button-z-index: Button's z-index. Defaults to auto.
+    * @prop --clio-button-loader-size: The size of the loader that appears in the button loading state. Default 16px.
+    * @prop --clio-button--primary-active-background-color: Primary button's background color when pressed. Default #0769b0.
+    * @prop --clio-button--primary-active-border-color: Primary button's border color when pressed. Default #0769b0.
+    * @prop --clio-button--primary-active-box-shadow: Primary button's inner shadow when pressed. Default inset 0 1px 3px 0 #004670.
+    * @prop --clio-button--primary-default-background-color: Primary button's default background color. Defaults to #1f9efc.
+    * @prop --clio-button--primary-default-border-color: Primary button's default border color. Defaults to #1f9efc.
+    * @prop --clio-button--primary-default-color: Primary button's default text color. Defaults to Defaults to global --white.
+    * @prop --clio-button--primary-default-gradient: Primary button's default gradient. Defaults to linear-gradient(-180deg, #4ab2fd 0%, #1e9efc 100%).
+    * @prop --clio-button--primary-disabled-background-color: Primary button's disabled background color. Defaults to #a0d3f9.
+    * @prop --clio-button--primary-disabled-border-color: Primary button's disabled border color. Defaults to #a0d3f9.
+    * @prop --clio-button--primary-disabled-color: Primary button's disabled text color. Defaults to global --white.
+    * @prop --clio-button--primary-hover-gradient: Primary button's hover gradient. Defaults to  linear-gradient(-180deg, #2d9def 2%, #007dd9 100%).
+    * @prop --clio-button--secondary-active-background-color: Secondary button's background color when pressed. Defaults to #eceff1.
+    * @prop --clio-button--secondary-active-border-color: Secondary button's border color when pressed. Defaults to #b0bec5.
+    * @prop --clio-button--secondary-active-box-shadow: Secondary button's inner shadow when pressed. Defaults to inset 0 1px 3px 0 rgba(38, 50, 56, 0.5).
+    * @prop --clio-button--secondary-default-background-color: Secondary button's default background color. Defaults to #f5f7f8.
+    * @prop --clio-button--secondary-default-border-color: Secondary button's default border color. Defaults to #b0bec5.
+    * @prop --clio-button--secondary-default-color: Secondary button's default text color. Defaults to #263238. Also applies on hover and press.
+    * @prop --clio-button--secondary-default-gradient: Secondary button's default gradient. Defaults to linear-gradient(-180deg, #ffffff 0%, #f5f7f8 100%).
+    * @prop --clio-button--secondary-disabled-background-color: Secondary button's disabled background color. Defaults to #f5f7f8.
+    * @prop --clio-button--secondary-disabled-border-color: Secondary button's disabled border color. Defaults to #d7dee2.
+    * @prop --clio-button--secondary-disabled-color: Secondary button's disabled text color. Defaults to global --white.
+    * @prop --clio-button--secondary-hover-gradient: Secondary button's hover gradient. Defaults to  linear-gradient(-180deg, #f6f8f9 0%, #dfe6e9 100%).
+    * @prop --clio-button--danger-active-background-color: Danger button's background color when pressed. Defaults to #9a000e.
+    * @prop --clio-button--danger-active-border-color: Danger button's border color when pressed. Defaults to #9a000e.
+    * @prop --clio-button--danger-active-box-shadow: Danger button's inner shadow when pressed. Defaults to inset 0 1px 3px 0 #390006;
+    * @prop --clio-button--danger-default-background-color: Danger button's default background color. Defaults to #e41b28.
+    * @prop --clio-button--danger-default-border-color: Danger button's default border color. Defaults to #a60110.
+    * @prop --clio-button--danger-default-color: Danger button's default text color. Defaults to global --white.
+    * @prop --clio-button--danger-default-gradient: Danger button's default gradient. Defaults to linear-gradient(-180deg, #fd3c49 0%, #ce111d 100%).
+    * @prop --clio-button--danger-disabled-background-color: Danger button's disabled background color. Defaults to #eb9197.
+    * @prop --clio-button--danger-disabled-border-color: Danger button's disabled border color. Defaults to #eb9197.
+    * @prop --clio-button--danger-disabled-color: Danger button's disabled text color. Defaults to global --white.
+    * @prop --clio-button--danger-hover-gradient: Danger button's hover gradient. Defaults to linear-gradient(-180deg, #d3131f 0%, #b6000c 100%).
+
+    */
+  --clio-button-border-radius: 3px;
+  --clio-button-border-width: 1px;
+  --clio-button-font-family: var(--font-family);
+  --clio-button-font-size: var(--font-size-body);
+  --clio-button-host-display: inline-block;
+  --clio-button-padding-x: var(--spacing-m);
+  --clio-button-padding-y: var(--spacing-s);
+  --clio-button-z-index: auto;
+  --clio-button-loader-size: 16px;
+
+  // Small Button Variables
+  --clio-button-padding-y--small: var(--spacing-xs);
+  --clio-button-padding-x--small: var(--spacing-s);
+
+  // "Primary" Button Variables
+  --clio-button--primary-active-background-color: #0769b0;
+  --clio-button--primary-active-border-color: #0769b0;
+  --clio-button--primary-active-box-shadow: inset 0 1px 3px 0 #004670;
+  --clio-button--primary-default-background-color: #1f9efc;
+  --clio-button--primary-default-border-color: #0075bb;
+  --clio-button--primary-default-color: var(--white);
+  --clio-button--primary-default-gradient: linear-gradient(-180deg, #4ab2fd 0%, #1e9efc 100%);
+  --clio-button--primary-disabled-background-color: #a0d3f9;
+  --clio-button--primary-disabled-border-color: #a0d3f9;
+  --clio-button--primary-disabled-color: var(--white);
+  --clio-button--primary-hover-gradient: linear-gradient(-180deg, #2d9def 2%, #007dd9 100%);
+
+  // "Secondary" Button Variables
+  --clio-button--secondary-active-background-color: #eceff1;
+  --clio-button--secondary-active-border-color: #b0bec5;
+  --clio-button--secondary-active-box-shadow: inset 0 1px 3px 0 rgba(38, 50, 56, 0.5);
+  --clio-button--secondary-default-background-color: #f5f7f8;
+  --clio-button--secondary-default-border-color: #b0bec5;
+  --clio-button--secondary-default-color: #263238;
+  --clio-button--secondary-default-gradient: linear-gradient(-180deg, #ffffff 0%, #f5f7f8 100%);
+  --clio-button--secondary-disabled-background-color: #f5f7f8;
+  --clio-button--secondary-disabled-border-color: #d7dee2;
+  --clio-button--secondary-disabled-color: #b0bec5;
+  --clio-button--secondary-hover-gradient: linear-gradient(-180deg, #f6f8f9 0%, #dfe6e9 100%);
+
+  // "Danger" Button Variables
+  --clio-button--danger-active-background-color: #9a000e;
+  --clio-button--danger-active-border-color: #9a000e;
+  --clio-button--danger-active-box-shadow: inset 0 1px 3px 0 #390006;
+  --clio-button--danger-default-background-color: #e41b28;
+  --clio-button--danger-default-border-color: #a60110;
+  --clio-button--danger-default-color: var(--white);
+  --clio-button--danger-default-gradient: linear-gradient(-180deg, #fd3c49 0%, #ce111d 100%);
+  --clio-button--danger-disabled-background-color: #eb9197;
+  --clio-button--danger-disabled-border-color: #eb9197;
+  --clio-button--danger-disabled-color: var(--white);
+  --clio-button--danger-hover-gradient: linear-gradient(-180deg, #d3131f 0%, #b6000c 100%);
+
+  display: var(--clio-button-host-display);
+}
+
+:host([disabled]) {
+  pointer-events: none;
+}
+
+.clio-button {
+  border-radius: var(--clio-button-border-radius);
+  border-style: solid;
+  border-width: var(--clio-button-border-width);
+  cursor: pointer;
+  display: inline-block;
+  font-family: var(--clio-button-font-family);
+  font-size: var(--clio-button-font-size);
+  font-style: normal;
+  font-weight: bold;
+  margin: 0;
+  min-width: max-content;
+  padding: var(--clio-button-padding-y) var(--clio-button-padding-x);
+  text-align: center;
+  text-decoration: none;
+  text-transform: capitalize;
+  vertical-align: middle;
+  z-index: var(--clio-button-z-index);
+  &[aria-disabled="true"] {
+    background-image: none;
+    pointer-events: none;
+  }
+  &:focus {
+    border-color: var(--focus-color);
+    box-shadow: var(--focus-box-shadow);
+    outline: 0;
+  }
+}
+
+.clio-button--small {
+  padding: var(--clio-button-padding-y--small) var(--clio-button-padding-x--small);
+}
+
+.clio-button--primary {
+  background-color: var(--clio-button--primary-default-background-color);
+  background-image: var(--clio-button--primary-default-gradient);
+  border-color: var(--clio-button--primary-default-border-color);
+  color: var(--clio-button--primary-default-color);
+  fill: var(--clio-button--primary-default-color);
+  &:hover {
+    background-image: var(--clio-button--primary-hover-gradient);
+  }
+  &:active {
+    background-color: var(--clio-button--primary-active-background-color);
+    border-color: var(--clio-button--primary-active-border-color);
+    box-shadow: var(--clio-button--primary-active-box-shadow);
+  }
+  &[aria-disabled="true"] {
+    background-color: var(--clio-button--primary-disabled-background-color);
+    border-color: var(--clio-button--primary-disabled-border-color);
+    color: var(--clio-button--primary-disabled-color);
+  }
+}
+
+.clio-button--secondary {
+  background-color: var(--clio-button--secondary-default-background-color);
+  background-image: var(--clio-button--secondary-default-gradient);
+  border-color: var(--clio-button--secondary-default-border-color);
+  color: var(--clio-button--secondary-default-color);
+  fill: var(--clio-button--secondary-default-color);
+  &:hover {
+    background-image: var(--clio-button--secondary-hover-gradient);
+  }
+  &:active {
+    background-color: var(--clio-button--secondary-active-background-color);
+    border-color: var(--clio-button--secondary-active-border-color);
+    box-shadow: var(--clio-button--secondary-active-box-shadow);
+  }
+  &[aria-disabled="true"] {
+    background-color: var(--clio-button--secondary-disabled-background-color);
+    border-color: var(--clio-button--secondary-disabled-border-color);
+    color: var(--clio-button--secondary-disabled-color);
+  }
+}
+
+.clio-button--danger {
+  background-color: var(--clio-button--danger-default-background-color);
+  background-image: var(--clio-button--danger-default-gradient);
+  border-color: var(--clio-button--danger-default-border-color);
+  color: var(--clio-button--danger-default-color);
+  fill: var(--clio-button--danger-default-color);
+  &:hover {
+    background-image: var(--clio-button--danger-hover-gradient);
+  }
+  &:active {
+    background-color: var(--clio-button--danger-active-background-color);
+    border-color: var(--clio-button--danger-active-border-color);
+    box-shadow: var(--clio-button--danger-active-box-shadow);
+  }
+  &[aria-disabled="true"] {
+    background-color: var(--clio-button--danger-disabled-background-color);
+    border-color: var(--clio-button--danger-disabled-border-color);
+    color: var(--clio-button--danger-disabled-color);
+  }
+}
+
+.clio-button__loading {
+  position: relative;
+}
+
+.clio-button__loading .clio-button--content {
+  visibility: hidden;
+}
+
+.clio-button__loading .clio-button--loader {
+  visibility: visible;
+  position: absolute;
+  top: calc(50% - var(--clio-button-loader-size) / 2);
+  left: calc(50% - var(--clio-button-loader-size) / 2);
+}
+
+.clio-button--danger .clio-button--loader,
+.clio-button--primary .clio-button--loader  {
+  --loader-color: var(--white);
+}

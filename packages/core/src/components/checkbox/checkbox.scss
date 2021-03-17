@@ -1,0 +1,77 @@
+:host {
+  /**
+   * @prop --clio-checkbox-border-radius: The border radius of the checkbox. Default `4px`.
+   * @prop --clio-checkbox-border-width: The border width of the checkbox. Default `1px`.
+   * @prop --clio-checkbox-height: The height of the checkbox. Default `16px`.
+   * @prop --clio-checkbox-icon-disabled-background-color: The background color of the checkbox icon  when it is in the "disabled" state. Default `--grey-200`.
+   * @prop --clio-checkbox-icon-active-background-color: The background color of the checkbox when it  is in the "active" state. Default `--blue-link-500`.
+   * @prop --clio-checkbox-margin-bottom: Radio margin bottom. Default var(--spacing-s).
+   * @prop --clio-checkbox-margin-right: The margin to the right of the checkbox. Default `0px`.
+   * @prop --clio-checkbox-unchecked-border-color: The border color of the checkbox when it is not checked. Default `--grey-400`.
+   * @prop --clio-checkbox-width: The width of the checkbox. Default `16px`.
+   */
+  --clio-checkbox-border-radius: 4px;
+  --clio-checkbox-border-width: 1px;
+  --clio-checkbox-icon-active-background-color: var(--blue-link-500);
+  --clio-checkbox-icon-disabled-background-color: var(--grey-200);
+  --clio-checkbox-height: 16px;
+  --clio-checkbox-margin-bottom: var(--spacing-s);
+  --clio-checkbox-margin-right: 0;
+  --clio-checkbox-unchecked-border-color: var(--grey-400);
+  --clio-checkbox-width: 16px;
+
+  align-items: center;
+  display: inline-block;
+  margin-bottom: var(--clio-checkbox-margin-bottom);
+  position: relative;
+}
+
+.clio-checkbox {
+  cursor: pointer;
+  height: var(--clio-checkbox-height);
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  width: var(--clio-checkbox-width);
+}
+
+.clio-checkbox-icon {
+  align-items: center;
+  border: var(--clio-checkbox-border-width) solid var(--clio-checkbox-unchecked-border-color);
+  border-radius: var(--clio-checkbox-border-radius);
+  display: flex;
+  height: var(--clio-checkbox-height);
+  justify-content: space-around;
+  margin-right: var(--clio-checkbox-margin-right);
+  width: var(--clio-checkbox-width);
+}
+
+.clio-checkbox__error {
+  margin: 0 0 0 var(--spacing-s);
+}
+
+.clio-checkbox-icon__error {
+  border-color:  var(--red-500);
+}
+
+.clio-checkbox__container {
+  display: flex;
+}
+
+.clio-checkbox:focus + .clio-checkbox-icon {
+  border-color: var(--focus-color);
+  box-shadow: var(--focus-box-shadow);
+  outline: 0;
+}
+
+.clio-checkbox:checked + .clio-checkbox-icon,
+.clio-checkbox:indeterminate + .clio-checkbox-icon {
+  background-color: var(--clio-checkbox-icon-active-background-color);
+  border-color: var(--clio-checkbox-icon-active-background-color);
+}
+
+.clio-checkbox:disabled + .clio-checkbox-icon {
+  background-color: var(--clio-checkbox-icon-disabled-background-color);
+  border-color: var(--clio-checkbox-icon-disabled-background-color);
+}
+

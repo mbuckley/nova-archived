@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Nova Core - Textarea Examples</title>
+
+    <link rel="shortcut icon" type="image/png" href="../../../favicon.png" />
+    <script type="module" src="../../../../../dist/core/core.esm.js"></script>
+    <script nomodule src="../../../../../dist/core.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../../dist/core/core.css" />
+  </head>
+
+  <body>
+    <nova-example label="Nova Core - Text Area Default">
+      <clio-textarea name="test"></clio-textarea>
+    </nova-example>
+
+    <nova-example label="Nova Core - Text Area With Placeholder">
+      <clio-textarea name="test2" placeholder="Placeholder"></clio-textarea>
+    </nova-example>
+
+    <nova-example label="Nova Core - Text Area that is disabled">
+      <clio-textarea name="test3" disabled></clio-textarea>
+    </nova-example>
+
+    <nova-example label="Nova Core - Text Area default value">
+      <clio-textarea name="test4" value="Default Value"></clio-textarea>
+    </nova-example>
+
+    <nova-example label="Nova Core - Text Area with label">
+      <clio-textarea name="test5" label="Label for Text Area"></clio-textarea>
+    </nova-example>
+
+    <nova-example label="Nova Core - Text Area with label and required indicator">
+      <clio-textarea name="test6" label="Label for Text Area" required="true"></clio-textarea>
+    </nova-example>
+
+    <nova-example label="Nova Core - Text Area with sub-label">
+      <clio-textarea name="test7" sub-label="This is a description of the textarea."></clio-textarea>
+    </nova-example>
+
+    <nova-example label="Nova Core - @Method setFocus">
+      <clio-textarea id="myInput"></clio-textarea>
+      <br />
+      <clio-button onclick="document.getElementById('myInput').setFocus()">Click to set focus</clio-button>
+    </nova-example>
+  </body>
+</html>

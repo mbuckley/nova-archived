@@ -1,0 +1,66 @@
+:host {
+  /**
+   * @prop --textarea--default-background-color: Background color of the textarea. Defaults to global --white.
+   * @prop --textarea--default-border-color: Color of the textarea's border. Defaults to global --border-color-dark.
+   * @prop --textarea--default-border-radius: Border radius of the textarea. Defaults to 2px.
+   * @prop --textarea--disabled-background-color: Background color of a disabled textarea. Defaults to global --grey-100.
+   * @prop --textarea--disabled-color: Font color of a disabled textarea. Defaults to global --grey-400.
+   * @prop --textarea__error-border-color: Border color of an error-state textarea. Defaults to global --red-500.
+   * @prop --textarea__error-box-shadow: Box shadow of an error-state textarea. Defaults: 0 0 0 1px var(--red-500).
+   * @prop --textarea-padding-x: Left/right padding of the textarea. Defaults to global --spacing-xs.
+   * @prop --textarea-padding-y: Top/bottom padding of the textarea. Defaults to global --spacing-xs.
+   * @prop --textarea-placeholder-color: Font colour of a textarea placeholder. Defaults to global --grey-400.
+   */
+  --textarea--default-background-color: var(--white);
+  --textarea--default-border-color: var(--border-color-dark);
+  --textarea--default-border-radius: 2px;
+  --textarea--disabled-background-color: var(--grey-100);
+  --textarea--disabled-color: var(--grey-400);
+  --textarea__error-border-color: var(--red-500);
+  --textarea__error-box-shadow: 0 0 0 1px var(--red-500);
+  --textarea-padding-x: var(--spacing-xs);
+  --textarea-padding-y: var(--spacing-xs);
+  --textarea-placeholder-color: var(--grey-400);
+
+  display: block;
+}
+
+.textarea {
+  background-color: var(--textarea--default-background-color);
+  border-radius: var(--textarea--default-border-radius);
+  border: 1px solid var(--textarea--default-border-color);
+  box-sizing: border-box;
+  color: var(--font-color-default);
+  display: flex;
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  padding: var(--textarea-padding-y) var(--textarea-padding-x);
+  width: 100%;
+  &:focus {
+    border-color: var(--blue-300);
+    box-shadow: var(--focus-box-shadow);
+    outline: 0;
+  }
+  &:disabled {
+    background-color: var(--textarea--disabled-background-color);
+    color: var(--textarea--disabled-color);
+  }
+  &::placeholder {
+    color: var(--textarea-placeholder-color);
+  }
+}
+.textarea__error {
+  border-color: var(--textarea__error-border-color);
+  &:focus {
+    border-color: var(--textarea__error-border-color);
+    box-shadow: var(--textarea__error-box-shadow);
+  }
+}
+
+clio-label {
+  --label-margin: var(--label-margin-bottom);
+}
+
+clio-label[label-type="sub-label"] {
+  --label-margin: var(--label-margin-top);
+}

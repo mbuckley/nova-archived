@@ -1,0 +1,59 @@
+@import '../../css/mixins.scss';
+
+docs-reference {
+  display: block;
+  margin: 1rem 0;
+  text-align: left;
+  font-size: 14px;
+}
+
+docs-reference h3 {
+  font-size: 1.25rem;
+  margin: 2rem 0 1rem;
+  padding: 0;
+}
+
+docs-reference a {
+  font-weight: inherit;
+}
+
+docs-reference a:before {
+  display: none;
+}
+
+docs-reference thead tr {
+  background-color: var(--offset-background);
+}
+
+docs-reference tbody tr {
+  background-color: #ffffff !important;
+}
+
+docs-reference tbody th,
+docs-reference tbody td {
+  padding: var(--spacing-s);
+  border: 1px solid var(--grey-200);
+}
+
+docs-reference tbody th {
+  vertical-align: top;
+  font-weight: var(--font-weight-bold);
+  color: var(--font-color-subdued);
+  padding-right: var(--spacing-xl);
+}
+
+docs-reference tbody p {
+  line-height: 2;
+}
+
+docs-reference p:first-child {
+  margin-top: 0;
+}
+
+docs-reference p:last-child {
+  margin-bottom: 0;
+}
+
+docs-reference code {
+  @include code-snippet;
+}

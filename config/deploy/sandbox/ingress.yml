@@ -1,0 +1,25 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nova-sandbox-us
+  annotations:
+    alb.ingress.kubernetes.io/auth-idp-oidc: '{"Issuer":"https://accounts.google.com","AuthorizationEndpoint":"https://accounts.google.com/o/oauth2/v2/auth","TokenEndpoint":"https://oauth2.googleapis.com/token","UserInfoEndpoint":"https://openidconnect.googleapis.com/v1/userinfo","SecretName":"oidc-auth" }'
+    alb.ingress.kubernetes.io/auth-session-cookie: 'nova-sandbox-us'
+    alb.ingress.kubernetes.io/auth-session-timeout: '86400'
+    alb.ingress.kubernetes.io/auth-type: 'oidc'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:410045895482:certificate/c8c21e24-70f6-4274-a94e-85e31f41902c
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    kubernetes.io/ingress.class: alb
+  labels:
+    app: nova
+  namespace: nova-sandbox-us
+spec:
+  rules:
+  - host: nova.sandbox.clio.systems
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: nova-sandbox-us
+          servicePort: 80

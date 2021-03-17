@@ -1,0 +1,19 @@
+:root {
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+  --font-size-body: 13px;
+  --font-size-small: 12px;
+  --font-size-h1: 20px;
+  --font-size-h2: 16px;
+  --font-size-h3: 14px;
+  --font-size-h4: 11px;
+
+  --font-weight-bold: 700;
+  --font-weight-regular: 400;
+
+  --font-color-default: var(--grey-700);
+  --font-color-subdued: var(--grey-500);
+  --font-color-error: var(--red-500);
+
+  --line-height: 1.2;
+}

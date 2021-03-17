@@ -1,0 +1,27 @@
+/* stylelint-disable selector-type-no-unknown */
+clio-button {
+  --clio-button-host-display: inline-flex;
+}
+
+.combo-button--secondary {
+  --clio-button-border-radius: 0 3px 3px 0;
+}
+
+.combo-button--primary {
+  --clio-button-border-radius: 3px 0 0 3px;
+  --clio-button-border-width: 1px 0 1px 1px;
+
+  &:focus-within {
+    --clio-button-border-width: 1px;
+    --clio-button-z-index: 2;
+
+    & ~ .combo-button--secondary {
+      --clio-button-border-width: 1px 1px 1px 0;
+      --clio-button-z-index: 1;
+    }
+  }
+}
+
+clio-icon {
+  pointer-events: none;
+}

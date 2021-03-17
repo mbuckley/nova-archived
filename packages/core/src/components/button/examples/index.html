@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Nova Core - Button Examples</title>
+
+    <link rel="shortcut icon" type="image/png" href="../../../favicon.png" />
+    <script type="module" src="../../../../../dist/core/core.esm.js"></script>
+    <script nomodule src="../../../../../dist/core.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../../dist/core/core.css" />
+    <style>
+      .custom-theme clio-button {
+        --clio-button-border-radius: 5px;
+        --clio-button-border-width: 2px;
+        --clio-button-font-size: 20px;
+        --clio-button-host-display: inline-block;
+        --clio-button-padding-x: var(--spacing-s);
+        --clio-button-padding-y: var(--spacing-m);
+        --clio-button-z-index: auto;
+
+        /* Small Button Variables */
+        --clio-button-padding-y--small: var(--spacing-s);
+        --clio-button-padding-x--small: var(--spacing-s);
+
+        /* Primary button theme */
+        --clio-button--primary-active-background-color: var(--mint-700);
+        --clio-button--primary-active-border-color: var(--green-700);
+        --clio-button--primary-active-box-shadow: inset 0 1px 3px 0 var(-coral-700);
+        --clio-button--primary-default-background-color: var(--mint-500);
+        --clio-button--primary-default-border-color: var(--green-500);
+        --clio-button--primary-default-color: var(--blue-100);
+        --clio-button--primary-default-gradient: linear-gradient(-180deg, var(--teal-700) 0%, var(--teal-700) 100%);
+        --clio-button--primary-disabled-background-color: var(--grey-400);
+        --clio-button--primary-disabled-border-color: var(--grey-700);
+        --clio-button--primary-disabled-color: var(--blue-link-500);
+        --clio-button--primary-hover-gradient: linear-gradient(-180deg, #2d9def 2%, #007dd9 100%);
+
+        /* Secondary Button theme */
+        --clio-button--secondary-active-background-color: var(--mint-700);
+        --clio-button--secondary-active-border-color: var(--green-700);
+        --clio-button--secondary-active-box-shadow: inset 0 1px 3px 0 var(-coral-700);
+        --clio-button--secondary-default-background-color: var(--mint-500);
+        --clio-button--secondary-default-border-color: var(--green-500);
+        --clio-button--secondary-default-color: var(--blue-100);
+        --clio-button--secondary-default-gradient: linear-gradient(-180deg, var(--mint-500) 0%, var(--mint-500) 100%);
+        --clio-button--secondary-disabled-background-color: var(--grey-400);
+        --clio-button--secondary-disabled-border-color: var(--grey-700);
+        --clio-button--secondary-disabled-color: var(--blue-link-500);
+        --clio-button--secondary-hover-gradient: linear-gradient(-180deg, var(--mint-500) 2%, var(--mint-500) 100%);
+
+        /* Dander Button theme */
+        --clio-button--danger-active-background-color: var(--mint-700);
+        --clio-button--danger-active-border-color: var(--green-700);
+        --clio-button--danger-active-box-shadow: inset 0 1px 3px 0 var(-coral-700);
+        --clio-button--danger-default-background-color: var(--mint-500);
+        --clio-button--danger-default-border-color: var(--green-500);
+        --clio-button--danger-default-color: var(--blue-100);
+        --clio-button--danger-default-gradient: linear-gradient(-180deg, var(--red-700) 0%, var(--red-500) 100%);
+        --clio-button--danger-disabled-background-color: var(--grey-400);
+        --clio-button--danger-disabled-border-color: var(--grey-700);
+        --clio-button--danger-disabled-color: var(--blue-link-500);
+        --clio-button--danger-hover-gradient: linear-gradient(-180deg, var(--red-500) 2%, var(--red-700) 100%);
+      }
+    </style>
+  </head>
+
+  <body>
+    <nova-example label="Default state, without any props">
+      <clio-button>Default button</clio-button>
+      <clio-button onclick="alert('Default button')">Default button with click event</clio-button>
+    </nova-example>
+
+    <nova-example label="Styles">
+      <clio-button button-style="primary">Primary</clio-button>
+      <clio-button button-style="secondary">Secondary</clio-button>
+      <clio-button button-style="danger">Danger</clio-button>
+    </nova-example>
+
+    <nova-example label="Size">
+      <clio-button size="default">Default</clio-button>
+      <clio-button size="small">Small</clio-button>
+    </nova-example>
+
+    <nova-example label="Types">
+      <clio-button type="button">type: button</clio-button>
+      <clio-button type="submit">type: submit</clio-button>
+      <clio-button type="reset">type: reset</clio-button>
+    </nova-example>
+
+    <nova-example label="Disabled">
+      <clio-button disabled="true" button-style="primary" onclick="alert('You should not be seeing this')"
+        >Disabled Primary</clio-button
+      >
+      <clio-button disabled="true" button-style="secondary" onclick="alert('You should not be seeing this')"
+        >Disabled Secondary</clio-button
+      >
+      <clio-button disabled="true" button-style="danger" onclick="alert('You should not be seeing this')"
+        >Disabled Danger</clio-button
+      >
+      <clio-button
+        disabled="true"
+        href="https://www.clio.com"
+        target="_blank"
+        onclick="alert('You should not be seeing this')"
+        >Disabled Link
+      </clio-button>
+    </nova-example>
+
+    <nova-example label="Button - Loading">
+      <clio-checkbox id="button-loading-toggle" checked="true" label="Toggle loading state"></clio-checkbox>
+      <clio-button
+        class="button--loading"
+        loading="true"
+        onclick="alert('You should not be seeing this if loading is true')"
+        button-style="primary"
+        >Loading</clio-button
+      >
+      <clio-button
+        class="button--loading"
+        loading="true"
+        onclick="alert('You should not be seeing this if loading is true')"
+        >Loading</clio-button
+      >
+      <clio-button
+        class="button--loading"
+        loading="true"
+        button-style="danger"
+        onclick="alert('You should not be seeing this if loading is true')"
+        >Loading</clio-button
+      >
+      <script type="text/javascript">
+        var toggleCheckbox = document.getElementById("button-loading-toggle");
+        var loadingButtons = document.querySelectorAll(".button--loading");
+        var buttonsCount = loadingButtons.length;
+
+        toggleCheckbox.addEventListener("clioChange", function(e) {
+          for (var i = 0; i < buttonsCount; i++) {
+            loadingButtons[i].loading = e.detail.checked;
+          }
+        });
+      </script>
+    </nova-example>
+
+    <nova-example label="Link Button (href) - Loading">
+      <clio-checkbox id="link-button-loading-toggle" checked="true" label="Toggle loading state"></clio-checkbox>
+      <clio-button
+        class="link-button--loading"
+        href="http://google.com"
+        button-style="primary"
+        target="_blank"
+        loading="true"
+        >Anchor button</clio-button
+      >
+      <clio-button class="link-button--loading" href="http://google.com" target="_blank" loading="true"
+        >Anchor button</clio-button
+      >
+      <clio-button
+        class="link-button--loading"
+        href="http://google.com"
+        button-style="danger"
+        target="_blank"
+        loading="true"
+        >Anchor button</clio-button
+      >
+      <script type="text/javascript">
+        var toggleLinkLoadingCheckbox = document.getElementById("link-button-loading-toggle");
+        var loadingLinkButtons = document.querySelectorAll(".link-button--loading");
+        var linkButtonsCount = loadingButtons.length;
+
+        toggleLinkLoadingCheckbox.addEventListener("clioChange", function(e) {
+          for (var i = 0; i < linkButtonsCount; i++) {
+            loadingLinkButtons[i].loading = e.detail.checked;
+          }
+        });
+      </script>
+    </nova-example>
+
+    <nova-example label="Link Button (href)">
+      <clio-button href="http://google.com">
+        Default Link
+      </clio-button>
+    </nova-example>
+
+    <nova-example label="Link Button (target)">
+      <clio-button href="http://google.com" target="_blank">
+        Link: target:_blank
+      </clio-button>
+      <clio-button href="http://google.com" target="_self">
+        Link: target:_self
+      </clio-button>
+      <clio-button href="http://google.com" target="_parent">
+        Link: target:_parent
+      </clio-button>
+      <clio-button href="http://google.com" target="_top">
+        Link: target:_top
+      </clio-button>
+      <clio-button href="http://google.com" target="framename">
+        Link: target:framename
+      </clio-button>
+    </nova-example>
+
+    <nova-example label="Link Button (rel)">
+      <clio-button href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-rel" rel="noopener">
+        Link: rel:noopener
+      </clio-button>
+      <clio-button href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-rel" rel="noreferrer">
+        Link: rel:noreferrer
+      </clio-button>
+    </nova-example>
+
+    <nova-example label="Events - See console for output">
+      <clio-button id="onFocusExampleBtn">Event:clioFocus</clio-button>
+      <clio-button id="onBlurExampleBtn">Event:clioBlur</clio-button>
+      <script>
+        document.getElementById("onFocusExampleBtn").addEventListener("clioFocus", function() {
+          console.log("Event:clioFocus fired");
+        });
+        document.getElementById("onBlurExampleBtn").addEventListener("clioBlur", function() {
+          console.log("Event:clioBlur fired");
+        });
+      </script>
+    </nova-example>
+
+    <nova-example label="Custom Theme" class="custom-theme">
+      <clio-button button-style="primary">Primary</clio-button>
+      <clio-button button-style="secondary">Secondary</clio-button>
+      <clio-button button-style="danger">Danger</clio-button>
+      <clio-button size="small">Small</clio-button>
+    </nova-example>
+  </body>
+</html>

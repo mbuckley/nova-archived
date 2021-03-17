@@ -1,0 +1,52 @@
+{
+  "name": "@clio/nova-core-react",
+  "sideEffects": false,
+  "version": "0.4.3",
+  "private": false,
+  "description": "React specific wrapper for nova core",
+  "scripts": {
+    "build": "npm run clean && npm run compile",
+    "clean": "rm -rf dist",
+    "compile": "npm run tsc",
+    "tsc": "tsc -p .",
+    "rollup": "rollup -c",
+    "publish": "npx clio-npm-publish packages/core-react"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "devDependencies": {
+    "@clio/npm-package-manager": "0.1.4",
+    "@types/jest": "23.3.9",
+    "@types/node": "12.12.3",
+    "@types/react": "16.7.6",
+    "@types/react-dom": "16.0.9",
+    "jest": "23.6.0",
+    "jest-dom": "3.5.0",
+    "np": "3.1.0",
+    "react": "16.11.0",
+    "react-dom": "16.11.0",
+    "typescript": "3.6.4"
+  },
+  "dependencies": {
+    "@clio/nova-core": "^0.4.3"
+  },
+  "peerDependencies": {
+    "react": "16.11.0",
+    "react-dom": "16.11.0"
+  },
+  "publishConfig": {
+    "registry": "https://clio.jfrog.io/clio/api/npm/product-npm-dev-local/"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js",
+    "testPathIgnorePatterns": [
+      "node_modules",
+      "dist"
+    ]
+  }
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Nova Core - Select Input</title>
+
+    <script type="module" src="../../../../../dist/core/core.esm.js"></script>
+    <script nomodule src="../../../../../dist/core.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../../dist/core/core.css" />
+    <style>
+      .wrapper {
+        margin: 0 auto;
+        width: 450px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nova-example label="Form submission example">
+      <form name="select-form">
+        <clio-select
+          id="select-role"
+          name="role-selection"
+          autofocus="true"
+          label="Select a role"
+          sub-label="Initialized with a value of: 1"
+        ></clio-select>
+        <clio-button type="submit">Submit</clio-button>
+      </form>
+    </nova-example>
+
+    <nova-example label="Loading">
+      <clio-select
+        id="select-loading"
+        name="loading"
+        label="Type in input to filter and trigger loading"
+        sub-label="Simulates server-side filtering with delay"
+      ></clio-select>
+    </nova-example>
+
+    <nova-example label="Scrollable menu">
+      <clio-select id="select-long" name="title-selection" label="Select an option from a long list"></clio-select>
+    </nova-example>
+
+    <nova-example label="setFocus example">
+      <clio-select id="set-focus-example" name="set-focus"></clio-select>
+      <br />
+      <clio-button onclick="document.getElementById('set-focus-example').setFocus()">Set Focus</clio-button>
+    </nova-example>
+
+    <script>
+      var form = document.forms.namedItem("select-form");
+
+      function onSubmitHandler(e) {
+        e.preventDefault();
+
+        alert(selectRole.name + "," + selectRole.value);
+      }
+
+      function onInputHandler(ev, selectElement, items) {
+        const searchTerm = ev.detail.value.toLowerCase();
+        const filteredItems = items.filter(function(item) {
+          return item.label.toLowerCase().indexOf(searchTerm) === 0;
+        });
+        selectElement.items = filteredItems;
+      }
+
+      form.onsubmit = onSubmitHandler;
+
+      var selectRole = document.getElementById("select-role");
+      var roles = [{ label: "Associate", value: 1 }, { label: "Liaison", value: 2 }, { label: "Consultant", value: 3 }];
+      selectRole.value = 1;
+      selectRole.items = roles;
+      selectRole.addEventListener("clioInput", function(e) {
+        onInputHandler(e, selectRole, roles);
+      });
+
+      var setFocusExample = document.getElementById("set-focus-example");
+      var items = [
+        { label: "Something", value: 1 },
+        { label: "Anything", value: 2 },
+        { label: "Everything", value: 3 },
+      ];
+      setFocusExample.value = 1;
+      setFocusExample.items = items;
+      setFocusExample.addEventListener("clioInput", function(e) {
+        onInputHandler(e, setFocusExample, items);
+      });
+
+      function generateList(noOfItems) {
+        let jobs = [];
+
+        while (noOfItems > 0) {
+          jobs.push({
+            label: "Item no - " + noOfItems,
+            value: noOfItems,
+          });
+          noOfItems--;
+        }
+        return jobs;
+      }
+
+      var selectLong = document.getElementById("select-long");
+      var jobs = generateList(400);
+      selectLong.items = jobs;
+      selectLong.addEventListener("clioInput", function(e) {
+        onInputHandler(e, selectLong, jobs);
+      });
+
+      var selectLoading = document.getElementById("select-loading");
+      var fruits = [{ label: "Apple", value: 1 }, { label: "Orange", value: 2 }, { label: "Peach", value: 3 }];
+      selectLoading.items = fruits;
+      selectLoading.addEventListener("clioInput", function(e) {
+        var searchTerm = e.detail.value.toLowerCase();
+        selectLoading.loading = true;
+        // simulate network + server delay
+        setTimeout(function() {
+          onInputHandler(e, selectLoading, fruits);
+          selectLoading.loading = false;
+        }, 500);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+---
+steps:
+  - label: ":docker: Caching docker images"
+    command:
+      - "echo '--- :building_construction: :docker: build'"
+      - "docker_image_cache.rb"
+
+  - wait
+
+  - label: ":stylelint: :eslint: Lint"
+    command:
+      - "echo '--- :docker: cached docker-compose build'"
+      - "docker_image_cache.rb"
+      - "echo '--- :stylelint: Linting CSS'"
+      - "docker-compose run nova npx lerna run --scope @clio/nova-core lint:css:components"
+      - "echo '--- :eslint: Linting TypeScript'"
+      - "docker-compose run nova npx lerna run --scope @clio/nova-core lint:ts:components"
+      - "echo '--- :pretter: Checking formatting'"
+      - "docker-compose run nova npx lerna run format:check"
+
+  - label: ":jest: Run tests"
+    command:
+      - "echo '--- :docker: cached docker-compose build'"
+      - "docker_image_cache.rb"
+      - "echo '--- Running unit tests'"
+      - "docker-compose run nova npx lerna run --scope @clio/nova-core test:spec"
+      - "echo '--- Running e2e tests'"
+      - "docker-compose run nova npx lerna run --scope @clio/nova-core build "
+      - "docker-compose run nova npx lerna run --scope @clio/nova-core test:e2e"
+
+  - label: ":building_construction: :npm: Build Packages"
+    command:
+      - "echo '--- :docker: cached docker-compose build'"
+      - "docker_image_cache.rb"
+      - "echo '--- :npm: Building packages'"
+      - "docker-compose run nova npx lerna run build"
+      - "echo '--- :cop: Verify build artifacts'"
+      - "docker-compose run nova npm run verify:build:artifacts"
+
+  - label: ":docker: Pushing Image to Artifactory"
+    command:
+      - "echo '--- :docker: cached docker-compose build'"
+      - "docker_image_cache.rb"
+      - "echo '--- :jfrog-artifactory: Pushing Image'"
+      - "/usr/local/bin/docker_image_push.sh clio-product-docker-dev-local.jfrog.io nova"
+
+  - wait
+
+  - label: ":npm: :jfrog-artifactory: Publish to Artifactory"
+    branches: "master"
+    commands:
+      - "npx lerna bootstrap --ci"
+      - "npx lerna run build"
+      - "npm install"
+      - "npx lerna run publish"

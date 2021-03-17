@@ -1,0 +1,17 @@
+@mixin code-block {
+  background: var(--code-block-background);
+  border-radius: 4px;
+  color: var(--code-text-color);
+  font-family: var(--code-font-family);
+  font-size:  var( --code-font-size);
+  padding: var(--spacing-l);
+}
+
+@mixin code-snippet {
+  background: var(--code-snippet-background);
+  border-radius: 4px;
+  color: var(--code-snippet-text-color);
+  font-family: var(--code-font-family);
+  font-size: var( --code-font-size);
+  padding: 0 var(--spacing-xs);
+}

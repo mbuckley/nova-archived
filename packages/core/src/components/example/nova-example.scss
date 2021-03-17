@@ -1,0 +1,11 @@
+:host {
+  display: flex;
+  .example {
+    margin: var(--spacing-l);
+    width: 100%;
+  }
+
+  .example__title {
+    margin-bottom: var(--spacing-s);
+  }
+}

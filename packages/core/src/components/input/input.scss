@@ -1,0 +1,112 @@
+:host {
+  /**
+    * @prop --input--default-background-color: The background color of a default input. Default `--white`.
+    * @prop --input--default-border-color: The border color of a default input. Default `--border-color-dark`.
+    * @prop --input--disabled-background-color: The background color of a disabled input. Default `--grey-100`.
+    * @prop --input--disabled-color: The text color of a disabled input. Default `--grey-400`.
+    * @prop --input--error-border-color: The border color of an input with an error. Default `--red-500`.
+    * @prop --input--suffix-background-color: The background color of the suffix element. Default `#f5f7f8`.
+    * @prop --input--suffix-color: The color of the suffix element. Default `--grey-500`.
+    * @prop --input-padding-x: The padding applied to the left and right of the input. Default `--spacing-m`.
+    * @prop --input-padding-y: The padding applied to the top and bottom of the input. Default `--spacing-s`.
+    * @prop --input-placeholder-color: The color of the input's placeholder text. Default `--grey-400`.
+   */
+  --input--default-background-color: var(--white);
+  --input--default-border-color: var(--border-color-dark);
+  --input--disabled-background-color: var(--grey-100);
+  --input--disabled-color: var(--grey-400);
+  --input--error-border-color: var(--red-500);
+  --input--suffix-background-color: #f5f7f8;
+  --input--suffix-color: var(--grey-500);
+  --input-padding-x: var(--spacing-m);
+  --input-padding-y: var(--spacing-s);
+  --input-placeholder-color: var(--grey-400);
+}
+
+.text-input--container {
+  background-color: var(--input--default-background-color);
+  border-radius: 2px;
+  border: 1px solid var(--input--default-border-color);
+  box-sizing: border-box;
+  color: var(--font-color-default);
+  display: flex;
+  width: 100%;
+
+  &::placeholder {
+    color: var(--input-placeholder-color);
+  }
+}
+
+.text-input--container__focus {
+  border-color: var(--blue-300);
+  box-shadow: var(--focus-box-shadow);
+}
+
+.text-input--container__error {
+  border: 1px solid var(--input--error-border-color);
+}
+
+.text-input {
+  border: none;
+  flex: 1;
+  font-size: var(--font-size-body);
+  margin: 0;
+  min-width: 0;
+  padding: var(--input-padding-y) var(--input-padding-x);
+  text-overflow: ellipsis;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:disabled {
+    color: var(--input--disabled-color);
+    background-color: var(--input--disabled-background-color);
+  }
+
+  &.text-input--has-icon,
+  &.text-input--has-loader {
+    padding-right: 0;
+  }
+}
+
+.text-input__loader {
+  align-items: center;
+  display: flex;
+  padding: 0 var(--input-padding-x);
+}
+
+.text-input__icon {
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  padding: 0 var(--input-padding-x);
+}
+
+.text-input__loader ~ .text-input__icon {
+  padding-left: 0;
+}
+
+.text-input:disabled ~ .text-input__icon,
+.text-input:disabled ~ .text-input__loader {
+  background-color: var(--input--disabled-background-color);
+}
+
+.text-input__suffix {
+  align-items: center;
+  background: var(--input--suffix-background-color);
+  border-left: 1px solid;
+  border-color: var(--input--default-border-color);
+  color: var(--input--suffix-color);
+  display: flex;
+  padding: 0 var(--input-padding-x);
+  user-select: none;
+}
+
+clio-label {
+  --label-margin: var(--label-margin-bottom);
+}
+
+clio-label[label-type="sub-label"] {
+  --label-margin: var(--label-margin-top);
+}

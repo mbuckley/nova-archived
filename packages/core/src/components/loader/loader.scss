@@ -1,0 +1,106 @@
+:host {
+  /**
+    * @prop --loader--large: The size of the container div for the loader, large is the default size. Defaults to 32px.
+    * @prop --loader--small: The size of the container div for the loader if the `size` prop is set to "small". Defaults to 16px.
+    * @prop --loader-color--reversed: The colour of the animated stroke in loader if the `loaderStyle` prop is set to "reversed". Defaults to --white.
+    * @prop --loader-color: The colour of the animated stroke in loader, --blue-link-500 is the default colour. Defaults to --blue-link-500.
+    * @prop --loader-stroke-width--large: The stroke-width of the animated stoke around the circle in loader, large is the default size. Defaults to 13.5%.
+    * @prop --loader-stroke-width--small: The stroke-width of the animated stroke in loader if the`size` prop is set to "small". Defaults to 20%.
+    * @prop --loader-svg-path--dash-gap: The size of the gap between dashes in a stroke. Defaults to 200px.
+    * @prop --loader-svg-path--dash-length-middle: The "stroke-dasharray" property draws a stroke around the outside of the svg circle. A value of 125px would draw the line completely around the circle. Defaults to 90px to give a "C" shape.
+    * @prop --loader-svg-path--dash-length-start: Changing the length of the stroke during the "dash" keyframe animation means a longer line will be drawn. Must always be a value >=125px. Defaults to 1px.
+    * @prop --loader-svg-path--offset-end: Here "stroke-offset" controls where the stroke appears to end. Animating it gives the impression that the end of the line is chasing the beginning. Defaults to -125px.
+    * @prop --loader-svg-path--offset-middle: A value of -35px moves the end of the stroke 35 pixels clockwise on the path of the circular svg. Defaults to -35px.
+    */
+
+  --loader--large: 32px;
+  --loader--small: 16px;
+  --loader-color--reversed: var(--white);
+  --loader-color: var(--blue-link-500);
+  --loader-stroke-width--large: 13.5%; // Uses a % value as Safari does not respect px values and warps the loader on zoom-in
+  --loader-stroke-width--small: 20%;
+  --loader-svg-path--dash-gap: 200px;
+  --loader-svg-path--dash-length-middle: 100px;
+  --loader-svg-path--dash-length-start: 1px;
+  --loader-svg-path--offset-end: -125px;
+  --loader-svg-path--offset-middle: -35px;
+
+  display: inline-block;
+}
+
+.loader {
+  &:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+  margin: 0 auto;
+  position: relative;
+}
+
+.loader--large {
+  stroke-width: var(--loader-stroke-width--large);
+  width: var(--loader--large);
+}
+
+.loader--small {
+  stroke-width: var(--loader-stroke-width--small);
+  width: var(--loader--small);
+}
+
+.loader-svg {
+  animation: rotate 2s linear infinite;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  stroke: var(--loader-color);
+  top: 0;
+  transform-origin: center center;
+  width: 100%;
+}
+
+.loader-svg--default {
+  stroke: var(--loader-color);
+}
+
+.loader-svg--reversed {
+  stroke: var(--loader-color--reversed);
+}
+
+.path {
+  animation: dash 1.5s ease-in-out infinite;
+  stroke-dasharray: var(--loader-svg-path--dash-length-start), var(--loader-svg-path--dash-gap);
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: var(--loader-svg-path--dash-length-start), var(--loader-svg-path--dash-gap);
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: var(--loader-svg-path--dash-length-middle), var(--loader-svg-path--dash-gap);
+    stroke-dashoffset: var(--loader-svg-path--offset-middle);
+  }
+  100% {
+    stroke-dasharray: var(--loader-svg-path--dash-length-middle), var(--loader-svg-path--dash-gap);
+    stroke-dashoffset: var(--loader-svg-path--offset-end);
+  }
+}
+
+// This media query targets IE10+ and sets the stroke-dasharray to 100px so that the Loader is visible in IE
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .path {
+    stroke-dasharray: 100px;
+  }
+}

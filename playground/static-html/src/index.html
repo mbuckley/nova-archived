@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nova Sandbox - Plain JavaScript & HTML</title>
+  </head>
+  <body class="custom-theme">
+    <h2>Sign up</h2>
+
+    <form id="test-form" style="width: 400px;">
+      <div style="display: flex; width: 100%;">
+        <clio-input name="first-name" required="true" label="First name"></clio-input>
+        <clio-input name="last-name" required="true" label="Last name"></clio-input>
+      </div>
+
+      <clio-input
+        name="email"
+        required="true"
+        type="email"
+        placeholder="e.g. mail@address.com"
+        label="Email"
+      ></clio-input>
+
+      <clio-radio-group label="Email type">
+        <clio-radio name="email-type" value="home" checked="true" label="Home email"></clio-radio>
+        <clio-radio name="email-type" value="business" label="Business email"></clio-radio>
+      </clio-radio-group>
+
+      <div style="display: flex; width: 100%;">
+        <clio-checkbox name="tos" required="true" aria-labelledby="tos-label"></clio-checkbox>
+        <clio-label id="tos-label">I agree to the <a href="#">terms and conditions</a></clio-label>
+      </div>
+
+      <br />
+
+      <clio-button button-style="primary" type="submit">Save</clio-button>
+      <clio-button button-style="secondary" type="reset">Cancel</clio-button>
+
+      <p id="form-data-el"></p>
+    </form>
+  </body>
+
+  <script>
+    /*!
+     * Serialize all form data into a query string
+     * (c) 2018 Chris Ferdinandi, MIT License, https://gomakethings.com
+     * @param  {Node}   form The form to serialize
+     * @return {String}      The serialized form data
+     */
+    var serialize = function(form) {
+      // Setup our serialized data
+      var serialized = [];
+
+      // Loop through each field in the form
+      for (var i = 0; i < form.elements.length; i++) {
+        var field = form.elements[i];
+
+        // Don't serialize fields without a name, submits, buttons, file and reset inputs, and disabled fields
+        if (
+          !field.name ||
+          field.disabled ||
+          field.type === "file" ||
+          field.type === "reset" ||
+          field.type === "submit" ||
+          field.type === "button"
+        )
+          continue;
+
+        // If a multi-select, get all selections
+        if (field.type === "select-multiple") {
+          for (var n = 0; n < field.options.length; n++) {
+            if (!field.options[n].selected) continue;
+            serialized.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.options[n].value));
+          }
+        }
+
+        // Convert field data to a query string
+        else if ((field.type !== "checkbox" && field.type !== "radio") || field.checked) {
+          serialized.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.value));
+        }
+      }
+
+      return serialized.join("&");
+    };
+
+    var formEl = document.getElementById("test-form");
+    var formDataEl = document.getElementById("form-data-el");
+
+    formEl.addEventListener("submit", function(evt) {
+      evt.preventDefault();
+
+      var formData = serialize(formEl);
+      formDataEl.textContent = formData;
+
+      // console.log(formData);
+      // fillArray();
+    });
+
+    // function fillArray() {
+    //   console.log("do something with " + wordInput.value);
+    // }
+  </script>
+</html>

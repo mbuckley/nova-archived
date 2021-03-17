@@ -1,0 +1,101 @@
+a.block-no-empty {}
+/*comment-white-space-inside*/
+/* */ // comment-no-empty
+.color-named {
+  color: red;
+}
+.color-no-invalid-hex {
+  color: #fdr;
+}
+.declaration-block-no-duplicate-properties {
+  display: block;
+  display: block;
+}
+.declaration-block-no-shorthand-property-overrides {
+  padding-left: 10px;
+  padding: 10px;
+}
+.declaration-no-important {
+  color: #fff!important;
+}
+.indentation {
+color: #fff;
+}
+.length-zero-no-unit {
+  margin-left: 0px;
+}
+.max-nesting-depth {
+  a {
+    color: #fff;
+    :hover {
+      color: #fff;
+    }
+  }
+}
+.no-eol-whitespace {
+  color: #fff;
+}
+.no-descending-specificity a {
+  color: #fff;
+}
+a {
+  color: #fff;
+}
+// no-duplicate-at-import-rules
+@import '../foundations/mixins';
+@import '../foundations/mixins';
+.no-duplicate-selectors {
+  color: #fff;
+}
+.no-duplicate-selectors {
+  color: #fff;
+}
+.no-extra-semicolons {
+  color: #fff;;
+}
+.property-no-unknown {
+  displau: block;
+}
+
+.rule-empty-line-before {
+  color: #fff;
+}
+.Selector-class-pattern {
+
+}
+.selector-max-empty-lines,
+
+.selector-max-empty-line-2 {
+  color: #fff;
+}
+#selector-max-id {
+  color: #fff;
+}
+.selector-max-specificity .selector-max-specificity .selector-max-specificity .selector-max-specificity{
+  color: #fff;
+}
+.selector-nested-pattern {
+  &:hover {
+    color: #fff;
+  }
+  .bar {
+    color:#fff;
+  }
+}
+.selector-pseudo-class-no-unknown {
+  a:hoverr {
+    color: #fff;
+  }
+}
+.selector-pseudo-element-no-unknown::boom {
+  color: #fff;
+}
+.string-no-newline {
+  content: 'ddf
+  dssada';
+}
+.unit-no-unknown {
+  margin: 20pixels;
+}
+$scss-dollar-variable-colon-space-after:20px;
+//scss/double-slash-comment-whitespace-inside

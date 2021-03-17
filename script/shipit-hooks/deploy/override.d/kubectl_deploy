@@ -1,0 +1,40 @@
+#!/bin/bash
+set -euo pipefail
+
+KUBECONFIG=${KUBECONFIG:-"${HOME}/.kube/${ENVIRONMENT}_config"}
+
+msg_red () {
+  echo -e "\033[0;31m${1}"
+}
+
+case "${ENVIRONMENT}" in
+"sandbox")
+  ASSUME_ROLE="arn:aws:iam::410045895482:role/internal-tooling-sandbox-us-a-Deployment"
+  CONTEXT="internal-tooling-sandbox-us-a"
+  NAMESPACE="nova-sandbox-us"
+  AWS_REGION="us-east-1"
+  ;;
+*)
+    msg_red "Unable to continue, ${ENVIRONMENT} is unsupported"
+    msg_red "Please ensure it is defined within ${0}."
+  exit 1
+;;
+esac
+
+SESSION_CREDENTIALS="$(mktemp --tmpdir session_credentials_XXXXXXXX)"
+chmod 0700 "${SESSION_CREDENTIALS}"
+
+aws sts assume-role --role-arn "${ASSUME_ROLE}" --role-session-name "${NAMESPACE}" >> "${SESSION_CREDENTIALS}"
+
+export AWS_SECRET_ACCESS_KEY="$(jq --raw-output .Credentials.SecretAccessKey "${SESSION_CREDENTIALS}")"
+export AWS_ACCESS_KEY_ID="$(jq --raw-output .Credentials.AccessKeyId "${SESSION_CREDENTIALS}")"
+export AWS_SESSION_TOKEN="$(jq --raw-output .Credentials.SessionToken "${SESSION_CREDENTIALS}")"
+
+rm --force "${SESSION_CREDENTIALS}"
+
+aws eks --region "${AWS_REGION}" update-kubeconfig \
+  --alias "${CONTEXT}" \
+  --kubeconfig "${KUBECONFIG}" \
+  --name "${CONTEXT}"
+
+KUBECONFIG="${KUBECONFIG}" kubernetes-deploy "${NAMESPACE}" "${CONTEXT}"

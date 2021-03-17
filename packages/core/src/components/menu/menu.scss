@@ -1,0 +1,11 @@
+:host {
+  /**
+    * @prop --menu-padding-y: The menu's vertical padding. Defaults to global --spacing-s.
+    */
+  --menu-padding-y: var(--spacing-s);
+}
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: var(--menu-padding-y) 0;
+}

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Nova Core - Popover Examples</title>
+
+    <link rel="shortcut icon" type="image/png" href="../../../favicon.png" />
+    <script type="module" src="../../../../../dist/core/core.esm.js"></script>
+    <script nomodule src="../../../../../dist/core.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../../dist/core/core.css" />
+
+    <style>
+      .popover-examples-container {
+        margin: 200px 400px;
+      }
+      .popover-examples-container > div {
+        width: 33%;
+        min-width: 200px;
+        margin: 0;
+        display: inline-block;
+      }
+      #menu-example {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 class="header">Examples for clio popover</h1>
+
+    <div class="popover-examples-container">
+      <!-- popover with menu -->
+      <div id="menu-example">
+        <clio-button id="menu-popover-activator">
+          Click to see menu items
+        </clio-button>
+        <clio-popover id="menu-popover" active="true" align-x="left" align-y="bottom" padding="xs">
+          <div slot="content">
+            <clio-menu>
+              <clio-menu-item onclick="alert('Triggered')">Apple</clio-menu-item>
+              <clio-menu-item onclick="alert('Triggered')">Ball</clio-menu-item>
+              <clio-menu-item onclick="alert('Triggered')">Cat</clio-menu-item>
+            </clio-menu>
+          </div>
+        </clio-popover>
+      </div>
+
+      <!-- vertical align "top" -->
+      <div>
+        <clio-button id="top-left-popover-activator">
+          Top Left
+        </clio-button>
+        <clio-popover id="top-left-popover" active="true" align-x="left" align-y="top" padding="xs">
+          <div slot="content">
+            <p>
+              Padding "xs"
+            </p>
+          </div>
+        </clio-popover>
+      </div>
+
+      <div>
+        <clio-button id="top-middle-popover-activator">
+          Top Middle
+        </clio-button>
+        <clio-popover id="top-middle-popover" active="true" align-x="middle" align-y="top">
+          <div slot="content">
+            <p>
+              Default padding (l)
+            </p>
+          </div>
+        </clio-popover>
+      </div>
+
+      <div>
+        <clio-button id="top-right-popover-activator">
+          Top Right
+        </clio-button>
+        <clio-popover id="top-right-popover" active="true" align-x="right" align-y="top" padding="none">
+          <div slot="content">
+            <p>
+              Padding "none"
+            </p>
+          </div>
+        </clio-popover>
+      </div>
+
+      <!-- vertical align "middle" -->
+
+      <div>
+        <clio-button id="middle-left-popover-activator">
+          Middle Left
+        </clio-button>
+        <clio-popover id="middle-left-popover" active="true" align-x="left" align-y="middle" padding="s">
+          <div slot="content">
+            <p>
+              Padding "s"
+            </p>
+          </div>
+        </clio-popover>
+      </div>
+
+      <div class="popover-example"></div>
+
+      <div>
+        <clio-button id="middle-right-popover-activator">
+          Middle Right
+        </clio-button>
+        <clio-popover id="middle-right-popover" active="true" align-x="right" align-y="middle">
+          <div slot="content">
+            <p>
+              Vel
+            </p>
+          </div>
+        </clio-popover>
+      </div>
+
+      <!-- vertical align "bottom" -->
+      <div>
+        <clio-button id="bottom-left-popover-activator">
+          Bottom Left
+        </clio-button>
+        <clio-popover id="bottom-left-popover" active="true" align-x="left" align-y="bottom" padding="m">
+          <div slot="content">
+            <input />
+            <br />
+            <a href="http://google.com">Go to Google</a>
+            <br />
+            <p>
+              Padding "m"
+            </p>
+            <button type="submit">Submit Form</button>
+          </div>
+        </clio-popover>
+      </div>
+
+      <div>
+        <clio-button id="bottom-middle-popover-activator">
+          Bottom Middle
+        </clio-button>
+        <clio-popover id="bottom-middle-popover" active="true" align-x="middle" align-y="bottom" padding="l">
+          <div slot="content">
+            <p>
+              Padding "l"
+            </p>
+          </div>
+        </clio-popover>
+      </div>
+
+      <div>
+        <clio-button id="bottom-right-popover-activator">
+          Bottom Right
+        </clio-button>
+        <clio-popover id="bottom-right-popover" active="true" align-x="right" align-y="bottom" padding="xl">
+          <div slot="content">
+            <p>
+              Padding "xl" Padding "xl" Padding "xl" Padding "xl" Padding "xl" Padding "xl" Padding "xl" Padding "xl"
+              Padding "xl" Padding "xl"
+            </p>
+          </div>
+        </clio-popover>
+      </div>
+
+      <!-- Popover js for initializing components -->
+      <script type="text/javascript">
+        function handlePopoverActivatorClick(popoverId) {
+          var popover = document.getElementById(popoverId);
+          popover.active = !popover.active;
+        }
+        function initializePopovers() {
+          var popovers = [];
+          var activators = [];
+          var popoverTypes = [
+            "top-left",
+            "top-middle",
+            "top-right",
+            "bottom-left",
+            "bottom-middle",
+            "bottom-right",
+            "middle-left",
+            "middle-right",
+            "menu",
+          ];
+
+          popoverTypes.forEach(function (popoverType) {
+            popovers.push(document.getElementById(popoverType + "-popover"));
+            activators.push(document.getElementById(popoverType + "-popover-activator"));
+          });
+
+          window.onload = function () {
+            popovers.forEach(function (popover, i) {
+              popover.activator = activators[i];
+            });
+            activators.forEach(function (activator, i) {
+              activator.addEventListener("click", function () {
+                handlePopoverActivatorClick(popovers[i].id);
+              })
+            })
+          };
+        };
+        initializePopovers();
+      </script>
+    </div>
+  </body>
+</html>

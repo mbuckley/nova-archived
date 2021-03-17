@@ -1,0 +1,10 @@
+@import "./colors";
+@import "./typography";
+@import "./spacing";
+@import "./borders";
+
+// TODO find a more appropriate place for these variables
+:root {
+  --focus-color: var(--blue-300);
+  --focus-box-shadow: 0 0 0 2px var(--focus-color);
+}

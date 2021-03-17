@@ -1,0 +1,27 @@
+---
+version: "3.7"
+
+services:
+  nova:
+    build:
+      args:
+        ARTIFACTORY_API_KEY: "${ARTIFACTORY_API_KEY?ARTIFACTORY_API_KEY must contain your CGI-escaped Artifactory API key.}"
+        ARTIFACTORY_USERNAME: "${ARTIFACTORY_USERNAME?ARTIFACTORY_USERNAME must contain your Artifactory username.}"
+        ARTIFACTORY_NPM_TOKEN: "${ARTIFACTORY_NPM_TOKEN?ARTIFACTORY_NPM_TOKEN must contain your Artifactory npm token.}"
+      context: .
+      cache_from:
+        - clio-product-docker-dev-local.jfrog.io/nova:latest
+        - nova:latest
+    image: 'nova'
+    ports:
+      - 3333:3333
+    user: "${DOCKER_RUN_AS_UID:-0}:${DOCKER_RUN_AS_GID:-0}"
+    volumes:
+      - /nova/node_modules
+      - /nova/packages/core/node_modules
+      - /nova/packages/core-react/node_modules
+      - /nova/packages/docs/node_modules
+      - /nova/playground/angularjs/node_modules
+      - /nova/playground/react/node_modules
+      - /nova/playground/static-html/node_modules
+      - '.:/nova'

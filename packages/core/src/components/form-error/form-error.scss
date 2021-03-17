@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  color: var(--red-500);
+  font-size: var(--font-size-small);
+  margin-top: var(--spacing-xs);
+  padding-top: var(--spacing-xs);
+}
+
+clio-icon {
+  --icon-container-height: auto;
+  --icon-container-width: auto;
+
+  padding-right: var(--spacing-s);
+}

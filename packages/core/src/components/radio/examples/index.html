@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Nova Core - Radio Examples</title>
+
+    <link rel="shortcut icon" type="image/png" href="../../../favicon.png" />
+    <script type="module" src="../../../../../dist/core/core.esm.js"></script>
+    <script nomodule src="../../../../../dist/core.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../../dist/core/core.css" />
+  </head>
+
+  <body>
+    <nova-example>
+      <clio-radio-group id="group1" label="Select an option">
+        <clio-radio name="group1" value="1" label="Option 1"></clio-radio>
+        <clio-radio name="group1" value="2" label="Option 2"></clio-radio>
+        <clio-radio name="group1" value="3" label="Option 3"></clio-radio>
+        <clio-radio disabled="true" name="group1" value="4" label="Option 4"></clio-radio>
+      </clio-radio-group>
+
+      <p>Selected Value: <span id="group1-value"></span></p>
+    </nova-example>
+
+    <nova-example>
+      <clio-radio-group id="group2" label="Select a country" value="mexico">
+        <clio-radio name="group2" value="canada" label="Canada"></clio-radio>
+        <clio-radio name="group2" value="us" label="United States"></clio-radio>
+        <clio-radio name="group2" value="mexico" label="Mexico"></clio-radio>
+        <clio-radio disabled="true" name="group2" value="costarica" label="Costa Rica"></clio-radio>
+      </clio-radio-group>
+
+      <p>Selected Value: <span id="group2-value"></span></p>
+    </nova-example>
+
+    <script>
+      document.getElementById("group1").addEventListener("clioChange", function(detail) {
+        document.getElementById("group1-value").innerText = detail.detail.value;
+      });
+
+      document.getElementById("group2").addEventListener("clioChange", function(detail) {
+        document.getElementById("group2-value").innerText = detail.detail.value;
+      });
+
+      document.addEventListener("DOMContentLoaded", function() {
+        const group2Value = document.getElementById("group2").value;
+
+        if (group2Value) {
+          document.getElementById("group2-value").innerText = group2Value;
+        } else {
+          // IE11 fallback
+          waitForValueInIE11();
+        }
+      });
+
+      function waitForValueInIE11() {
+        if (typeof document.getElementById("group2").value !== "undefined") {
+          document.getElementById("group2-value").innerText = document.getElementById("group2").value;
+        } else {
+          setTimeout(waitForValueInIE11, 250);
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Nova Core - MenuItem Examples</title>
+
+    <link rel="shortcut icon" type="image/png" href="../../../favicon.png" />
+    <script type="module" src="../../../../../dist/core/core.esm.js"></script>
+    <script nomodule src="../../../../../dist/core.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../../dist/core/core.css" />
+  </head>
+
+  <body>
+    <nova-example label="clio menu item">
+      <clio-menu>
+        <clio-menu-item id="item-one" onclick="console.log('Triggered')">Apple</clio-menu-item>
+        <clio-button onclick="enableDisableMenuItem('item-one')">Enable/Disable</clio-button>
+  
+        <clio-menu-item id="item-two" href="https://www.google.com">Link to Google</clio-menu-item>
+        <clio-button onclick="enableDisableMenuItem('item-two')">Enable/Disable</clio-button>
+  
+        <clio-menu-item id="item-three" disabled="true">Disabled</clio-menu-item>
+        <clio-button onclick="enableDisableMenuItem('item-three')">Enable/Disable</clio-button>
+  
+        <clio-menu-item id="item-four" onclick="console.log('Triggered')">Xylophone</clio-menu-item>
+        <clio-button onclick="enableDisableMenuItem('item-four')">Enable/Disable</clio-button>
+  
+        <clio-menu-item id="item-five" onclick="console.log('Triggered')">Zebra</clio-menu-item>
+        <clio-button onclick="enableDisableMenuItem('item-five')">Enable/Disable</clio-button>
+      </clio-menu>
+    </nova-example>
+
+    <script>
+      const enableDisableMenuItem = id => {
+        const el = document.getElementById(id);
+        el.toggleAttribute("disabled");
+      };
+    </script>
+  </body>
+</html>

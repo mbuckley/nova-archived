@@ -1,0 +1,101 @@
+.App {
+  text-align: center;
+  margin-top: 56px;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.App header {
+  background-color: #001D36;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  display: flex;
+  align-items: center;
+}
+
+.App header * {
+  display: inline;
+}
+
+.App header li {
+  margin: 20px;
+}
+
+.App header li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+  font-weight: var(--font-weight-bold);
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+}
+h2 {
+  font-size: var(--font-size-h2);
+}
+h3 {
+  font-size: var(--font-size-h3);
+}
+h4 {
+  font-size: var(--font-size-h4);
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+strong {
+  font-weight: var(--font-weight-bold);
+}
+
+/* .custom-theme {
+  --font-size-h1: 80px;
+  --font-size-h2: 60px;
+  --font-size-h3: 40px;
+  --font-size-h4: 30px;
+}
+
+.custom-theme clio-button {
+  --button-border-radius: 6px;
+  --button-padding-y: 20px;
+  --button-padding-x: 20px;
+  --button-font-size: 20px;
+
+  --button--danger-default-gradient: 0;
+  --button--danger-default-background-color: var(--mint-500);
+  --button--danger-default-border-color: var(--mint-500);
+  --button--danger-hover-gradient: 0;
+  --button--danger-hover-gradient: var(--mint-700);
+  --button--danger-hover-border-color: var(--mint-700);
+
+  --button--primary-default-background-color: var(--blue-link-500);
+  --button--primary-default-border-color: var(--blue-link-500);
+  --button--primary-default-color: #ffffff;
+  --button--primary-default-gradient: none;
+
+  --button--secondary-default-background-color:var(--white);
+  --button--secondary-default-border-color:var(--blue-link-500);
+  --button--secondary-default-color: var(--blue-link-500);
+  --button--secondary-default-gradient: none;
+} */

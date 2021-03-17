@@ -1,0 +1,9 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nova
+  namespace: nova-sandbox-us
+data:
+  APACHE_SERVERNAME: 'nova.sandbox.clio.systems'
+  APACHE_STATIC_SITE: 'yes'

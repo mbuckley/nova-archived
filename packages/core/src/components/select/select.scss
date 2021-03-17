@@ -1,0 +1,54 @@
+/**
+Note: A lot of the style rules in this file are duplicated from menu-item.scss. This is because we want the menu and menu items in the Select to
+      look the same as the <clio-menu-item> without having the exact same behavior.
+*/
+
+.select {
+  /**
+  * @prop --select__popover__item-default-background-color: The menu item's background color in the default state. Defaults to global --white.
+  * @prop --select__popover__item-default-color: The menu item's text color in the default state. Defaults to global --grey-700.
+  * @prop --select__popover__item-hover-background-color: The menu item's background color in the hover state. Defaults to global --blue-link-500.
+  * @prop --select__popover__item-hover-color: The menu item's text color in the hover state. Defaults to global -- white.
+  * @prop --select__popover__item-padding-x: The menu item's horizontal padding. Defaults to global --spacing-m.
+  * @prop --select__popover__item-padding-y: The menu item's vertical padding. Defaults to global --spacing-s.
+  */
+  --select__popover__item-default-background-color: var(--white);
+  --select__popover__item-default-color: var(--grey-700);
+  --select__popover__item-hover-background-color: var(--blue-link-500);
+  --select__popover__item-hover-color: var(--white);
+  --select__popover__item-padding-x: var(--spacing-m);
+  --select__popover__item-padding-y: var(--spacing-s);
+
+  user-select: none;
+}
+
+.select__popover {
+  overflow-y: auto;
+  max-height: calc(var(--spacing-m) * 30); // A somewhat arbitrary value at the moment.
+}
+
+.select__popover__list {
+  padding: 0;
+  margin: 0;
+}
+
+.select__popover__item,
+.select__popover__item--disabled {
+  align-items: center;
+  background-color: var(--select__popover__item-default-background-color);
+  color: var(--menu-item-default-color);
+  display: flex;
+  flex: 1 1 auto;
+  padding: var(--select__popover__item-padding-y) var(--select__popover__item-padding-x);
+  text-decoration: none;
+}
+
+.select__popover__item {
+  cursor: pointer;
+  &[aria-selected="true"] {
+    background-color: var(
+      --grey-100
+    ); // color matching the background color for a focused <clio-menu-item> as defined in menu-item.scss.
+    color: var(--menu-item-default-color);
+  }
+}

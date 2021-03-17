@@ -1,0 +1,79 @@
+:host {
+  /**
+    * @prop --pill-background: The default pill background color when no color prop is passed. Defaults to global --grey-300.
+    * @prop --pill-height: The pill's height. Defaults to 18px.
+    * @prop --pill-padding-x:  The pill's horizontal padding. Defaults to global --spacing-s.
+    * @prop --pill-text: The pill's default text color when no color prop is passed. Defaults to global --grey-700.
+    * @prop --pill--green-background: The green pill's background color. Defaults to --green-300.
+    * @prop --pill--green-text: The green pill's text color. Defaults to --green-700.
+    * @prop --pill--orange-background: The orange pill's background color. Defaults to --orange-300.
+    * @prop --pill--orange-text: The orange pill's text color. Defaults to --orange-700.
+    * @prop --pill--red-background: The red pill's background color. Defaults to --red-300.
+    * @prop --pill--red-text: The red pill's text color. Defaults to --red-700.
+    * @prop --pill--teal-background: The teal pill's background color. Defaults to --teal-300.
+    * @prop --pill--teal-text: The teal pill's text color. Defaults to --teal-700.
+    * @prop --pill--yellow-background: The yellow pill's background color. Defaults to --yellow-300.
+    * @prop --pill--yellow-text: The yellow pill's text color. Defaults to --yellow-700.
+    */
+
+  --pill-background: var(--grey-300);
+  --pill-height: 18px;
+  --pill-padding-x:  var(--spacing-s);
+  --pill-text: var(--grey-700);
+  --pill--green-background: var(--green-300);
+  --pill--green-text: var(--green-700);
+  --pill--orange-background: var(--orange-300);
+  --pill--orange-text: var(--orange-700);
+  --pill--red-background: var(--red-300);
+  --pill--red-text: var(--red-700);
+  --pill--teal-background: var(--teal-300);
+  --pill--teal-text: var(--teal-700);
+  --pill--yellow-background: var(--yellow-300);
+  --pill--yellow-text: var(--yellow-700);
+
+  display: inline-block;
+}
+
+.pill {
+  align-items: center;
+  background-color: var(--pill-background);
+  border-radius: calc(var(--pill-height) / 2);
+  color: var(--pill-text);
+  display: flex;
+  font-size: 11px;
+  line-height: 1;
+  font-weight: var(--font-weight-bold);
+  height: var(--pill-height);
+  justify-content: space-around;
+  padding: 0 var(--pill-padding-x);
+}
+
+.pill--grey {
+  background-color: var(--pill-background);
+  color: var(--pill-text);
+}
+
+.pill--yellow {
+  background-color: var(--pill--yellow-background);
+  color: var(--pill--yellow-text);
+}
+
+.pill--teal {
+  background-color: var(--pill--teal-background);
+  color: var(--pill--teal-text);
+}
+
+.pill--green {
+  background-color: var(--pill--green-background);
+  color: var(--pill--green-text);
+}
+
+.pill--orange {
+  background-color: var(--pill--orange-background);
+  color: var(--pill--orange-text);
+}
+
+.pill--red {
+  background-color: var(--pill--red-background);
+  color: var(--pill--red-text);
+}

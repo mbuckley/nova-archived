@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="TestApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nova Angular 1.7. Sandbox</title>
+  </head>
+
+  <body>
+    <div ng-controller="FancyController as ctrl">
+      <h3 style="font-weight: bold; margin: 15px 0">ComboButton prototype</h3>
+      <clio-combo-button
+        id="my-combo-button"
+        primary-action-label="Default combo button"
+        ng-prop-primary_action_click="ctrl.handlePrimaryActionClick"
+      >
+        <clio-menu slot="parent-slot">
+          <clio-menu-item ng-repeat="menuItem in ctrl.menuItems" ng-click="menuItem.onClick(menuItem.text)">{{
+            menuItem.text
+          }}</clio-menu-item>
+        </clio-menu>
+      </clio-combo-button>
+
+      <h3 style="font-weight: bold; margin: 15px 0">Form prototype</h3>
+
+      <form name="test-form" id="test-form" style="width: 400px;" ng-submit="ctrl.submitHandler($event)">
+        <div style="display: flex; width: 100%;">
+          <clio-form-input>
+            <clio-label>First name</clio-label>
+            <clio-input ng-prop-value="ctrl.formData.firstName" name="firstName" required="true" ng-on-input="ctrl.handleInputChange($event)"></clio-input>
+          </clio-form-input>
+
+          <clio-form-input>
+            <clio-label>Last name</clio-label>
+            <clio-input ng-prop-value="ctrl.formData.lastName" name="lastName" required="true" ng-on-input="ctrl.handleInputChange($event)"></clio-input>
+          </clio-form-input>
+        </div>
+
+        <clio-form-input>
+          <clio-label>Email</clio-label>
+          <clio-input
+            ng-prop-value="ctrl.formData.email"
+            name="email"
+            required="true"
+            type="email"
+            placeholder="e.g. mail@address.com"
+            ng-on-input="ctrl.handleInputChange($event)"
+          >
+          </clio-input>
+        </clio-form-input>
+
+        <clio-label>Email type</clio-label>
+        <clio-form-input>
+          <clio-radio name="emailType" value="home" ng-prop-checked="ctrl.emailType === home" ng-click="ctrl.handleInputChange($event)"></clio-radio>
+          <clio-label>Home email</clio-label>
+        </clio-form-input>
+
+        <clio-form-input>
+          <clio-radio name="emailType" value="business" ng-prop-checked="ctrl.emailType === business" ng-click="ctrl.handleInputChange($event)"></clio-radio>
+          <clio-label>Business</clio-label>
+        </clio-form-input>
+
+        <clio-form-input>
+          <clio-checkbox ng-prop-checked="ctrl.formData.tos" name="tos" ng-on-clio_change="ctrl.handleCheckboxChange($event)"></clio-checkbox>
+          <clio-label>I agree to the <a href="#">terms and conditions</a></clio-label>
+        </clio-form-input>
+
+        <br />
+
+        <clio-button button-style="primary" type="submit">Save</clio-button>
+        <clio-button button-style="secondary" type="reset">Cancel</clio-button>
+
+        <p style="font-weight: bold;margin: 15px 0">Submitted form data is:</p>
+        <pre id="form-data-el"></pre>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+:host {
+  /**
+    * @prop --popover-background: The popover background color. Defaults to --white.
+    * @prop --popover-border-radius: The popover border radius. Defaults to 4px.
+    * @prop --popover-box-shadow: The popover's box shadow. Defaults to 0px 20px 30px rgba(0, 28, 55, 0.2).
+    * @prop --popover-max-width: The popover's maximum width. Defaults to 400px.
+    */
+  --popover-background: var(--white);
+  --popover-border-radius: 4px;
+  --popover-box-shadow: 0px 20px 30px rgba(0, 28, 55, 0.2);
+  --popover-max-width: 400px;
+
+  background: var(--popover-background);
+  border-radius: var(--popover-border-radius);
+  box-shadow: var(--popover-box-shadow);
+  box-sizing: border-box;
+  display: none;
+  max-width: var(--popover-max-width);
+  position: fixed;
+  width: max-content;
+  z-index: 10000001; // TODO: Replace when z-index strategy is formalized (https://github.com/clio/design_system/issues/282)
+}
+
+:host([active]) {
+  display: block;
+}
+
+slot[name="content"] {
+  display: block;
+  overflow: hidden;
+}
+
+.popover--padding-xs {
+  padding: var(--spacing-xs);
+}
+
+.popover--padding-s {
+  padding: var(--spacing-s);
+}
+
+.popover--padding-m {
+  padding: var(--spacing-m);
+}
+
+.popover--padding-l {
+  padding: var(--spacing-l);
+}
+
+.popover--padding-xl {
+  padding: var(--spacing-xl);
+}
+
+.popover--padding-none {
+  padding: 0;
+}

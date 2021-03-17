@@ -1,0 +1,28 @@
+a.block-no-empty {
+  color: red;
+}
+/* comment-white-space-inside */
+.declaration-no-important {
+  color: red;
+}
+.indentation {
+  color: red;
+}
+.length-zero-no-unit {
+  margin-left: 0;
+}
+.max-nesting-depth {
+  a {
+    color: red;
+  }
+}
+.no-eol-whitespace {
+  color: red;
+}
+.rule-empty-line-before {
+  color: red;
+}
+.selector-max-empty-lines,
+.selector-max-empty-line-2 {
+  color: red;
+}
